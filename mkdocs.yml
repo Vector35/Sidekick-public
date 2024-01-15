@@ -1,0 +1,63 @@
+site_name: 'Binary Ninja Sidekick User Documentation'
+copyright: '© Copyright 2015-2023, Vector 35 Inc'
+theme:
+  name: material
+  favicon: 'images/favicon.ico'
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: red
+    accent: grey
+    toggle:
+      icon: material/toggle-switch-off-outline
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: red
+    accent: blue grey
+    toggle:
+      icon: material/toggle-switch
+      name: Switch to light mode
+  highlightjs: false
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 191  # ? / /
+nav:
+  - Home: 'index.md'
+  - 'getting-started.md'
+  - User's Guide:
+    - Introduction: guide/guide.md
+    - Indexes Sidebar: guide/indexes.md
+    - Code Insight Map View: guide/code_insight_map.md
+    - "Suggestions Sidebar":
+      - guide/suggestions.md
+      - Structure Recovery: guide/structures.md
+      - guide/variables.md
+      - Structure and Field Naming: guide/fields.md
+      - Function Naming: guide/function_naming.md
+      - Function Descriptions: guide/briefs.md
+    - Notebook Sidebar: guide/notebook.md
+    - guide/components.md
+    - guide/documentation.md
+    - guide/code_comment.md
+    - Function Callee Naming: guide/function_callee_naming.md
+  - About:
+    - Sidekick: 'about/about.md'
+    - Data Retention: 'about/data-retention.md'
+    - Terms of Service: 'about/terms-of-service.md'
+    - Open Source: 'about/open-source.md'
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - toc:
+      permalink: True
+extra_css:
+  - docs.css
