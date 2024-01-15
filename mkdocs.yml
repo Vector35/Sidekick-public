@@ -1,5 +1,5 @@
 site_name: 'Binary Ninja Sidekick User Documentation'
-copyright: '© Copyright 2015-2023, Vector 35 Inc'
+copyright: '© Copyright 2015-2024, Vector 35 Inc'
 theme:
   name: material
   favicon: 'images/favicon.ico'
