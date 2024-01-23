@@ -2,6 +2,8 @@
 
 This README provides instructions for previewing the Sidekick documentation using `mkdocs`.
 
+The source for the actual Sidekick plugin itself is proprietary, copyright Vector 35 and available via download through the Binary Ninja Plugin Manager rather than being hosted here on GitHub.
+
 ## Prerequisites
 
 To preview this documentation, you will need to have `mkdocs` installed on your system. If you don't have it installed, you can install it by running the following command:
