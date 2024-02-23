@@ -15,7 +15,7 @@ If structures have been recovered for the current component, then during Sidekic
 
 To manually request and apply suggestions for naming structures and fields in the current function, perforom the following actions:
 
-- Select `Suggest Struct/Field Names` from the hamburger menu in the Sidekick Suggestions sidebar
+- Select `Suggest Struct/Field Names` from the hamburger menu in the Sidekick Suggestions sidebar, or select `Suggest Struct/Fields Names for Current Function` from the `Plugins->Sidekick` main menu
 - Select each generated suggestion you want to apply following the same actions above for applying general suggestions
 
 To recover structures for the current component, follow the instructions [here](./structures.md#how-to-use-it).

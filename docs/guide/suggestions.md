@@ -41,6 +41,8 @@ Users can also request Sidekick to generate suggestions of a specific type. To r
 - `Suggest Variable Names`
 - `Suggest Struct/Field Names`
 
+These actions are also available from the `Plugins->Sidekick` menu.
+
 (Note: Structure and field name suggestions will not be generated if [Structure Recovery](./structures.md) has not been performed first.)
 
 ## Applying Suggestions

@@ -9,7 +9,7 @@ Sidekick can suggest names for functions based on the function content. The sugg
 
 To name the current function using this method, perform the following actions:
 
-- Select `Suggest Function Name` from the hamburger menu in the Sidekick Suggestions sidebar
+- Select `Suggest Function Name` from the hamburger menu in the Sidekick Suggestions sidebar, or select `Suggest Function Name for Current Function` from the `Plugins->Sidekick` main menu
 - Right-click on the suggestion for function name and select `Apply`
 
 ## Request for General Suggestion Types

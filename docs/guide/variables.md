@@ -16,7 +16,7 @@ During Sidekick's process for making [general suggestions](./suggestions.md#gene
 
 To manually request and apply suggestions for naming variables in the current function, perforom the following actions:
 
-- Select `Suggest Variable Names` from the hamburger menu in the Sidekick Suggestions sidebar
+- Select `Suggest Variable Names` from the hamburger menu in the Sidekick Suggestions sidebar, or select `Suggest Variables Names for Current Function` from the `Plugins->Sidekick` main menu
 - Select each generated suggestion you want to apply following the same actions above for applying general suggestions
 
 Alternatively, you can click on a suggested item to navigate to the variable definition.  You can then rename that variable directly using the Binary Ninja UI.  At that point, the suggestion items that refer to that variable will be removed from the list.  The remaining suggestions can be reviewed, accepted, or rejected.
