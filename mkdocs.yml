@@ -38,15 +38,15 @@ nav:
       - Structure and Field Naming: guide/fields.md
       - Function Naming: guide/function_naming.md
       - Function Descriptions: guide/briefs.md
-    - Notebook Sidebar: guide/notebook.md
+    - Assistant Sidebar: guide/assistant.md
+    - Investigations Sidebar: guide/investigations.md
     - guide/components.md
     - guide/documentation.md
     - guide/code_comment.md
     - Function Callee Naming: guide/function_callee_naming.md
   - About:
     - Sidekick: 'about/about.md'
-    - Data Retention: 'about/data-retention.md'
-    - Terms of Service: 'about/terms-of-service.md'
+    - Legal Terms and Conditions: 'about/legal-terms-and-conditions.md'
     - Open Source: 'about/open-source.md'
 markdown_extensions:
   - pymdownx.highlight:

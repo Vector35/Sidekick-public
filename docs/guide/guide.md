@@ -20,7 +20,7 @@ Sidekick is an AI-powered service that takes reverse engineering to the next lev
 
 ### Interactive Assistance
 
-* [Notebook](notebook.md): Interact with Sidekick through a chat interface to answer your questions about the binary. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
+* [Assistant](assistant.md): Interact with the Sidekick Assistant through a chat interface to answer your questions about the binary. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
 
 ### Program Structure Analysis
 
@@ -28,8 +28,9 @@ Sidekick is an AI-powered service that takes reverse engineering to the next lev
 
 ### Documentation
 
-* [Documentation View](documentation.md): Automatically generate editable, man page-like descriptions of functions to help document your progress. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
+* [Documentation View](documentation.md): Automatically generate editable, man page-like descriptions of functions to help document your progress. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details. This feature will be deprecated in a future release.)*
 * [Code Comments](code_comment.md): Make sense of cryptic code by inserting a comment that automatically summarizes it
+* [Investigations](investigations.md): Launch tailored, automated investigations of the code for pre-defined topics and document findings. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
 
 
 With Sidekick, you have access to these new capabilities that streamline the reverse engineering process, enabling you to do it all more quickly and efficiently!
@@ -50,4 +51,5 @@ Most features within the Sidekick plugin require access to the Sidekick service;
 | Code Selection Comments   | Requires service access |
 | Function Comments         | Requires service access |
 | Documentation View        | Automatic documentation generation requires service access. Manual generation does *not* require service access. |
-| Notebooks                 | Sending messages requires service access. Recording notes does *not* require service access. |
+| Assistant                 | Sending messages and automatic naming of page titles require service access. Recording notes does *not* require service access. |
+| Investigations            | Automatic generation of investigation findings on pre-defined topics requires service access. Manual generation of findings does *not* require service access. |
