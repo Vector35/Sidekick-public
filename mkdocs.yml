@@ -44,6 +44,8 @@ nav:
     - guide/documentation.md
     - guide/code_comment.md
     - Function Callee Naming: guide/function_callee_naming.md
+  - "Known Issues":
+    - SKI-1: issues/ski-1.md
   - About:
     - Sidekick: 'about/about.md'
     - Legal Terms and Conditions: 'about/legal-terms-and-conditions.md'
