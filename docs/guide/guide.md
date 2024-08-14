@@ -4,10 +4,11 @@ Sidekick is an AI-powered service that takes reverse engineering to the next lev
 
 ## Features
 
-### Quick Search and Navigation
+### Powerful Analysis and Search
 
-* [User-Defined Indexes](indexes.md): Use natural language to describe items in the binary you're looking for and automatically find and display them. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
-* [Code Insight Map](code_insight_map.md): View relationships between items in your indexes to help you discover and understand high-level functionality of the program. *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
+* [Analysis Workbench](analysis_workbench.md): Using interactive assistance, develop and refine scripts that blend both Python code and the capabilities of large language models to perform complex analysis tasks.  *(Note: This feature does not fully require Sidekick service access. See [below](#sidekick-service) for details.)*
+* [User-Defined Indexes](indexes.md): Store and display items in the binary for quick and easy reference. *(Note: This feature does not require Sidekick service access. See [below](#sidekick-service) for details.)*
+* [Code Insight Map](code_insight_map.md): View relationships between items in your indexes to help you discover and understand high-level functionality of the program. *(Note: This feature does not require Sidekick service access. See [below](#sidekick-service) for details.)*
 
 ### Improve Code Clarity
 
@@ -41,7 +42,8 @@ Most features within the Sidekick plugin require access to the Sidekick service;
 
 | Feature                       | Sidekick Service Dependency                          |
 | -----------                   | ------------------------------------ |
-| Indexes                       | Some indexer scripts that we provide require service access to run successfully. However, all users can manually create, add, and run their own indexer scripts without service access. |
+| Analysis Workbench            | Requires service access to create and build scripts automatically. Requires service access to execute scripts that use LLMOperators configured with a Sidekick service model. Requires service access to execute scripts that call Sidekick service APIs (e.g. symbol classifiers used by legacy indexer scripts). All users can manually create scripts that do not use LLMOperators and run them without service access.|
+| Indexes                       | Does *not* require service access. Users can manually create and run Analysis Workbench scripts that output content to an index without service access. |
 | Code Insight Map              | Does *not* require service access |
 | Structure Recovery            | Does *not* require service access. However, function components must be manually created for this feature to work without service access. |
 | Component Creation            | Requires service access |

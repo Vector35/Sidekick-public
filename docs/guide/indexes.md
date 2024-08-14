@@ -1,4 +1,4 @@
-# Indexes
+# Indexes (Sidekick Version 1.x)
 
 An index is a list of locations in the binary related to a specific topic that help you quickly find what you're looking for.
 A topic refers to an interesting feature or property of an item in the binary, such as:

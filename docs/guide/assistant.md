@@ -72,10 +72,6 @@ To copy an entire message within the history, right-click the message and select
 
 The Assistant is able to generate Python code that can be run directly in Binary Ninja's Python Console. To run the Python code that the Assistant generates in the message history, right-click the Python code text box and select `Run Code in Python Console`
 
-## Adding Python Code to Sidekick Index
-
-The Assistant is able to generate Python code that can be added to the Sidekick Index as a Sidekick Index Topic script. To add the Python code that the Assistant generates in the message history, right-click the Python code text box and select `Add Code to Sidekick Indexes`
-
 ## Search Messages
 
 To search for content within messages of the current page, enter a search term in the `Search messages...` text box

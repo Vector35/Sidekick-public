@@ -9,6 +9,7 @@ The Suggestions sidebar enables users to request suggestions from Sidekick that 
 * [Name Functions](./function_naming.md)
 * [Describe Function](./briefs.md)
 * [Name Function Callees](./function_naming.md#name-callee-functions)
+* Simplify Symbols
 
 As Sidekick generates suggestions, users are able to review and accept or reject them.
 
@@ -22,9 +23,14 @@ Users have two primary methods for requesting suggestions: general and specific.
 
 When requesting general suggestions, Sidekick will determine what suggestions to make based on the current state of the function. Sidekick makes suggestions in stages according to the following order of categories:
 
-1. Code Suggestions - These are suggestions that impact IL generation (e.g., structure recovery, dead store elimination, variable types, and parameter counts)
-2. Name Suggestions - These are suggestions that impact names of things (e.g. variable names, type names, subroutine names, etc)
-3. Metadata Suggestions - These are suggestions that add information about things (e.g., comments, documentation)
+
+| Category               | Description | Suggestion Types |
+| ---------------------- | ----------- | ---------------- |
+| Code Transformation    | Impacts IL generation | Recover Structures, Eliminate Dead Stores |
+| Contextual Identifiers | Adds context to the current function | Name Callee Functions, Simplify Symbols |
+| Structural Identifiers | Impacts structure names | Name Structures, Name Fields |
+| Local Identifiers      | Impacts names of elements local to the current function | Name Variables, Name Data Variables, Name Function |
+| Metadata               | Adds information about the current function | Comment Function |
 
 As users iteratively request general suggestions, Sidekick will generate other suggestion types during its progression through each suggestion stage.
 
@@ -60,6 +66,10 @@ Suggestions returned by Sidekick in the suggestions tree can be applied in the f
     - Select `Apply Suggestions for Current Function` from the `Plugins->Sidekick` menu
     - Press `F12`
 
+!!! note
+
+    Applying a suggestion submits feedback to up-vote the suggestion. See [Feedback for Suggestions](./suggestions.md#feedback-for-suggestions) for more information.
+
 ## Clearing Suggestions
 
 Suggestions returned by Sidekick in the suggestions tree can be cleared in the following ways:
@@ -70,6 +80,16 @@ Suggestions returned by Sidekick in the suggestions tree can be cleared in the f
 - To clear a selection of suggestions, select each suggestion you want to clear (using `Cntrl + Click` or `Shift + Click` depending on the desired selection scope), right-click, and select `Clear`
 - To clear all suggestions for the current function, select `Clear and Suggest for: <current_function>` from the hamburger menu. (Note: If auto-suggestions are disabled, then Sidekick will not make suggestions after clearing suggestions for the current function.)
 
+## Rejecting Suggestions
+
+Suggestions returned by Sidekick in the suggestions tree can be rejected as follows:
+
+- To reject a selection of suggestions, select each suggestion you want to reject (using `Cntrl + Click` or `Shift + Click` depending on the desired selection scope), right-click, and select `Reject`
+
+!!! note
+
+    Rejecting a suggestion submits feedback to down-vote the suggestion. See [Feedback for Suggestions](./suggestions.md#feedback-for-suggestions) for more information.
+
 ## Auto-Suggestions
 
 Sidekick supports the ability to generate suggestions automatically when a user dwells at a given location for a period of time (configurable in Settings). When enabled, the user simply clicks on a location in a function, stays there for the configured time, and then Sidekick starts to generate suggestions for that function. After a user applies all of the suggestions for the current function, then Sidekick will generate another set of suggestions based on the updated function. This iterative process repeats until no more suggestions can be made.
@@ -79,6 +99,20 @@ The `sidekick.suggestions.auto_suggest_dwell_time` setting controls the dwell ti
 ## Saving Suggestions
 
 When saving a BNDB, all suggestions currently in the suggestions tree are stored in the BNDB.  When re-opening a saved BNDB, suggestions stored in the BNDB are reloaded in the suggetions tree.
+
+## Feedback from Suggestions
+
+For the purpose of product improvement, Sidekick implements a simple up-/down-vote mechanism for collecting feedback on the quality of its suggestions. The following feedback is submitted for each suggestion action:
+
+| Suggestion Action | Feedback Submitted |
+| ----------------- | ------------------ |
+| Apply             | Up-Vote            |
+| Reject            | Down-Vote          |
+| Clear             | None               |
+
+!!! note
+
+    Feedback is only collected for non-commercial plans or for commercial plans where the user has opted in to allow collection. Commercial plan users can log in to their Sidekick account and update their plan to allow/disallow collection at any time.
 
 ## Tips on Using Suggestions
 

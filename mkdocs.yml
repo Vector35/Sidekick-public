@@ -29,7 +29,9 @@ nav:
   - 'getting-started.md'
   - User's Guide:
     - Introduction: guide/guide.md
-    - Indexes Sidebar: guide/indexes.md
+    - Indexes Sidebar:
+      - Sidekick Version 2.x: guide/indexes.v2.md
+      - Sidekick Version 1.x: guide/indexes.md
     - Code Insight Map View: guide/code_insight_map.md
     - "Suggestions Sidebar":
       - guide/suggestions.md
@@ -39,6 +41,8 @@ nav:
       - Function Naming: guide/function_naming.md
       - Function Descriptions: guide/briefs.md
     - Assistant Sidebar: guide/assistant.md
+    - Analysis Workbench Sidebar: guide/analysis_workbench.md
+    - LLMOperator Model Catalog Sidebar: guide/llmoperator_model_catalog.md
     - Investigations Sidebar: guide/investigations.md
     - guide/components.md
     - guide/documentation.md
