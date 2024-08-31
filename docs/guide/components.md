@@ -8,15 +8,15 @@ Sidekick uses features derived from BinaryNinja's static analysis and consolidat
 
 Sidekick attempts to name the components based on function names and other symbols it finds. If these features are not present in the binary, the components will be named based on their location in the binary.  However, you can always use the Sidekick Suggestions feature to infer more meaningful names.
 
-!!! note
-
-    The displaying of components in the `Symbols` sidebar is automatically supported starting in Binary Ninja version 3.6. To display components in the `Symbols` sidebar for prior versions of Binary Ninja (that support it as an experimental feature), go to the `Settings` tab, check the `Enable the new Symbols UI` checkbox, and restart Binary Ninja.
-
 ## How to use it
 
-Component Creation applies to the current function or a set of functions depending on which operation is performed. To create a component for the current function, click on the `Create Component` item in the `Plugins/Sidekick` menu. Components can also be created for the set of functions within the current index of the `Sidekick Indexes` sidebar. To create components for the functions in the current index, click on the `Create Components in Current Index` item in the `Plugins/Sidekick` menu or `Create components for functions in this index` icon in the `Sidekick Indexes` sidebar
+Component Creation applies to the current function or a set of functions depending on which operation is performed. To create a component for the current function, click on the `Create Component` item in the `Plugins/Sidekick` menu.
 
 The operation can take a few minutes to complete, depending on the number of functions selected. When it's done, you'll see the components in the `Symbols` sidebar.
+
+!!! note
+
+    In Sidekick versions before 2.0, components can also be created for the set of functions within the current index of the `Sidekick Indexes` sidebar by clicking on the `Create Components in Current Index` item in the `Plugins/Sidekick` menu or `Create components for functions in this index` icon in the `Sidekick Indexes` sidebar
 
 ## How to customize it
 
