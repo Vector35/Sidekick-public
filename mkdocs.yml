@@ -67,6 +67,10 @@ markdown_extensions:
 extra_css:
   - docs.css
 
+plugins:
+  - mike:
+      alias_type: redirect
+
 extra:
   version:
     provider: mike
