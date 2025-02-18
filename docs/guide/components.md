@@ -14,10 +14,6 @@ Component Creation applies to the current function or a set of functions dependi
 
 The operation can take a few minutes to complete, depending on the number of functions selected. When it's done, you'll see the components in the `Symbols` sidebar.
 
-!!! note
-
-    In Sidekick versions before 2.0, components can also be created for the set of functions within the current index of the `Sidekick Indexes` sidebar by clicking on the `Create Components in Current Index` item in the `Plugins/Sidekick` menu or `Create components for functions in this index` icon in the `Sidekick Indexes` sidebar
-
 ## How to customize it
 
 The component creation algorithm has several parameters that you can adjust to customize its behavior. To adjust these parameters, go to the Settings tab and locate the `Sidekick.components` section. The following options are available:

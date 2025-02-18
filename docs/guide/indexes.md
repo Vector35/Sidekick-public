@@ -1,201 +1,102 @@
-# Indexes (Sidekick Version 1.x)
+# Indexes
 
-An index is a list of locations in the binary related to a specific topic that help you quickly find what you're looking for.
-A topic refers to an interesting feature or property of an item in the binary, such as:
+An index is a collection of related items in the binary that you can navigate to, which is similar to the concept of an index in the back of a book that contains page numbers for various topics. The primary purpose of indexes is for reference.
 
-* Functions that perform file or network I/O
-* Functions that parse data
-* Strings that contain file paths or URLs
-* Strings that contain cryptographic keys
-* Components that contain functions that perform cryptographic operations
-* Instructions that allocate memory without checking for errors
-* And so on...
-
-Each binary that you open has its own set of indexes, each related to a pre-defined or user-defined topic.
-
-The indexing process works by running a Python indexer script that is specific to a given topic. The script uses the Binary Ninja API to find entries that match the topic. Entries can be components, functions, instructions, variables, or strings.
-
-Indexer scripts are run in the background. An indexer script is executed when you first add the index to the Sidekick Indexes, or when you select the `Refresh Index` button in the Sidekick Indexes sidebar.
-You can cancel the indexing process by clicking the `Cancel` button next to the indexing progress indicator.
-
-Click [here](./indexes.md#how-to-write-an-indexer-script) for examples of how to write an indexer script.
+Indexes are populated by Analysis Workbench scripts that use the Sidekick API to create an index and add entries. An entry can be any Binary Ninja object that you can navigate to via address  (e.g. Function, Instruction, DataVariable, StringReference, etc). Indexes are primarily used to group related items together; however, since they are simply collections of items, they do not have to be related. Also, multiple scripts can add entries to the same index.
 
 ## Indexes Sidebar
 
-The Indexes Sidebar is the place for viewing and managing the Indexes.  To access the Indexes sidebar, simply click the Sidekick Indexes icon.
+The Indexes Sidebar is the place for viewing and managing indexes.  To access the Indexes sidebar, simply click the Sidekick Indexes icon.
 
 ### Selecting the Current Index
 
 To select the current index to display, use the combo box at the top of the sidebar, which contains the set of indexes added to the current binary.
 
-Once an index is selected, entries matching the topic for the selected index are displayed in a table within the sidebar. Clicking on an entry in the table navigates you to the location in the binary associated with the entry address.
+Once an index is selected, its entries are displayed in a table within the sidebar. Clicking on an entry in the table navigates to the location in the binary associated with the entry address.
 
 ### Searching for Entries In the Current Index
 
-To search for entries in the table for the current index, enter a search term in the `Search this index...` text box at the top of the sidebar. Only table entries containing matches to the current search term are displayed
+To search for entries in the table for the current index, enter a search term in the `Search [n] entries...` text box at the top of the sidebar. Only table entries containing matches to the current search term are displayed.
 
-### Re-running the Current Index
+!!! note
 
-To re-run the indexer script for the current index, click on the `Refresh Index` button at the top of the sidebar. The indexer script for this index is executed in the background and when complete, the table is updated with entries matching the topic for the current index. When hovering over this button, the time that the indexer script was last run is displayed.
-
-### Creating Components for the Current Index
-
-To create components for the set of functions containing entries in the table for the current index, click on the `Create components for functions in this index` button. This operation may take a while depending on the number of functions in the current index.  While the operation is in progress, status is displayed in the status bar on the lower left corner. The operation can be canceled by clicking on the X on the status bar. Any components created prior to canceling are kept.
-
-### Naming Functions for the Current Index
-
-To apply names to the set of unnamed functions associated with entries in the table for the current index, perform any of the following actions:
-
-- Click on the `Name the functions in this index` button in the Sidekick Indexers sidebar
-- Select `Name Functions in Current Index` from the `Plugins->Sidekick` menu
-
-This operation may take a while depending on the number of functions in the current index.  While the operation is in progress, status is displayed in the status bar on the lower left corner. The operation can be canceled by clicking on the X on the status bar. Any names applied prior to canceling are kept.
-
-The process for naming functions in the current index first generates names for all unnamed callee functions using the method described [here](./function_callee_naming.md). Once all callees for the current function have been named, then Sidekick generates a name for that function.
-
-### Adding an Index
-
-To add an index to the set of indexes for the current binary, click on the hamburger menu and select `Add Indexes`. This will open the `Add Indexes` dialog containing a list of available indexes to add. This list can be searched by typing keywords, phrases, or script names in the search text box at the top of the dialog window. Select each index you want to add to the set of the indexes for the current binary by clicking on the index name. This will toggle the check-box for that index. Click the `Add Indexes` button to add the checked indexes.
-
-Sidekick comes with a set of pre-defined indexes that can be added to the set of indexes for the current binary. These indexes are indicated by an external URI (e.g. `https://`) in the `Provider` field of the index description on the `Add Indexes` dialog window. Users can also create their own local indexes, which are indicated by a `file://` URI in the `Provider` field of index description.
-
-### Creating an Index
-
-To create a new index, from the `Add Indexes` dialog, click the `Create` button. This will open the `Create New Indexer` dialog, which lets you define a new index by specifying a name, description, and indexer script.
-
-You can manually write the indexer script within the `Script` text box or use the `Generate` button to automatically generate a script based on the content in the `Description` text box. For details on how to write your own indexer script, click [here](./indexes.md#how-to-write-an-indexer-script).
-
-
-Once you are finished, click the `Accept` button to add the new index to the list of available indexes.
-
-(Note: User-created indexes are stored in an index repository within the Binary Ninja User Directory and available across binaries and Binary Ninja application sessions.)
-
-### Auto-Generating Indexer Scripts
-
-The `Generate` button in the `Create New Indexer` dialog automatically generates a script based on the description.
-The script is generated using a LLM (Large Language Model).  We are constantly improving the LLM to generate better scripts.
-You can use the generated script as a starting point for your own script.
-
-### Editing Indexes
-
-To edit an index, open the Edit Topic dialog using any of the following methods:
-
-- From the `Add Indexes` dialog, select an index and click the `Edit` button. (Note: This only applies to local indexes.)
-- From the Sidekick Indexes sidebar, select an index from the set of indexes for the current binary in the combo box and select `Edit Index` from the hamburger menu
-
-This will open the `Edit Topic` dialog, which lets you modify the name, description, and indexer script for the index. You can also auto-generate a new indexer script by clicking the `Generate` button, which will overwrite the existing indexer script.
-
-Once you are finished making edits, click on the `Accept` button to apply edits to the index.
-
-### Making a Local Copy of Remote Indexes
-
-As mentioned above, Sidekick comes with a set of pre-defined indexes that are stored in a remote repository. Remote indexes are indicated by an external URI (e.g. `https://`) in the `Provider` field of the index description. These indexes can be edited; however, in order to edit them, they must first be copied to the local repository. To make a local copy of a remote index, from within the `Add Indexes` dialog, right-click on a remote index and click `Make a Local Copy`. This opens a warning box indicating that you will be editing a local copy of the index followed by opening an `Edit Topic` dialog for the local copy of the index. From this dialog, the local copy can be edited prior to clicking on the `Accept` button. After accepting, the local copy will appear in the list of available indexes in the `Add Indexes` dialog. The local copy of the index will have a `file://` URI in the `Provider`  field of its description.
+    All columns in the index table are searchable.
 
 ### Removing Indexes
 
-To remove an index from the set of indexes for the current binary, from the Sidekick Indexes sidebar, select an index from the set of indexes for the current binary in the combo box and select `Remove Index` from the hamburger menu
+To remove an index from the set of indexes for the current binary, select the index that you want to remove from the indexes set using the combo box, click the hamburger menu, and select `Remove Index`.
 
-### Deleting Indexes
+### Navigating to Entry Address
 
-To delete an index from the local repository, from the `Add Indexes` dialog, select a local index (indicated with a `file://` URI in the `Provider` field of the index description), right-click and select `Delete`. (Note: This operation can only be performed on local indexes.)
+To navigate to the location in the binary associated with an index table entry, perform any of the following actions:
 
-### Navigating to Index Table Entry
+* Double-click on the `Address` or `Entry` column value for a given index table entry
+* Right-click on the index table entry and select `Navigate to Address`
 
-To navigate to the location of an entry in the table for the current index, double-click on the entry or right-click and select `Navigate to item`
+### Marking Entry Read Only
 
-### Removing Entry from Index Table
-
-To remove an entry from the table for the current index, right-click on the entry and select `Remove from index`
-
-### Saving an Indexing Suite
-
-Sidekick provides the ability to save indexes that are in the set of indexes for the current binary as a named collection (called an Indexing Suite) that can later be loaded into the set of indexes for another binary. To save indexes to an Index Suite, perform the following steps:
-
-- From the Sidekick Indexes sidebar, click on the hamburger menu and select `Save Indexing Suite As...`
-- In the `Save Indexing Suite` dialog, select the indexes you want to save in the suite
-- Enter a name for the indexing suite in the `Save As` field
-- Click `Save`
+Index table entries can be marked read-only, which prevents them from being over-written when the table is updated during script execution. To mark/de-mark an entry read-only, right-click on the index table entry and select/deselect `Read Only`.
 
 !!! note
 
-    Selecting the name of an existing Indexing Suite will over-write that Indexing Suite with the selected indexes.
+    If an entry is marked as read-only, then when the same script that originally generated the entry is re-run and adds the same entry, a new, duplicate entry will be added to the table. If the read-only attribute of the entry is removed, then when the same script that originally generated the entry is re-run, any duplicate non-read-only entries will be removed.
 
-### Loading an Indexing Suite
+### Copying Cells
 
-Sidekick provides the ability to load the indexes defined in an Indexing Suite to the set of indexes for the current binary. To load an Indexing Suite, perform the following steps:
+To copy cells to the clipboard, select any set of cells, right-click and select `Copy`.
 
-- From the Sidekick Indexes sidebar, click on the hamburger menu and select `Load Indexing Suite...`
-- In the `Load Indexing Suite` dialog, from the `Suite:` column, select the Indexing Suite you want to load
-- In the `Indexers:` column, select the set of indexes you want to load. By default, all indexes in the suite are selected.
-- Click `Load`
+### Removing Entries
+
+To remove entries from the index table, select any cell of the entries you want to remove, right-click and select `Remove Rows`. Multiple selections are supported.
 
 !!! note
 
-    During loading, the indexer script for each index selected will be run in the background and populate the items in the table for that index.
+    Entries marked as read-only will not be removed.
 
+### Re-running Source Scripts
 
-## How to Write an Indexer Script
+Associated with each entry in an index is the source script that was used to add it. This allows entries in the index to be refreshed or updated based on the latest state of the binary and/or script. To re-run the source scripts associated with entries in an index, perform any of the following actions:
 
-The purpose of an indexer script is to return items in the binary that match what you are looking for. The first step to writing an indexer script is determining what it is that you want to find. When creating a new indexer script, Sidekick provides the following default template:
+* Select an index from the indexes set, click the hamburger menu, and select `Re-run Source Scripts`
+* Right-click anywhere on the index table and select `Re-run Source Scripts`
 
-```
-from binaryninja import *
-from Vector35_Sidekick.indexing import IndexedValue
+!!! note
+    Index entries do not automatically refresh when associated updates to the binary or scripts occur. Re-running source scripts is the mechanism for updating entries.
 
-def indexer(bv: BinaryView) -> Generator[IndexedValue, None, None]:
-   """This function generates values for a Sidekick Index."""
-   # TODO: Implement your indexer here, or use the Generate button to write
-   #       the code based on the description above.
-   yield from bv.functions
-```
+### Showing Cell Preview
 
-From this template, you can implement the logic that finds matching items in the binary. You have flexibility in the types of items that you can find, which can be any of the following types defined by `IndexedValue`:
+To show/hide a preview of a selected cell in the index table, click the hamburger menu and select/deselect `Show Cell Preview`. This action will open/close the Cell Contents pane within the Indexes sidebar.
 
-- Component
-- Function
-- StringReference
-- Variable
-- HighLevelILInstruction
-- MediumLevelILInstruction
-- LowLevelILInstruction
+!!! note
+    Cells from the `Entry` column are not displayed in the call preview. Also, during an update to the index table, the cell contents preview is cleared. A cell must be selected again to preview its contents.
 
-For example, the following sample indexer script finds all functions that contain more than 100 instructions:
+### Pinning Indexes
 
-```
-from binaryninja import *
-from Vector35_Sidekick.indexing import IndexedValue
+A single index can be opened in a separate pane within the main view frame through an operation referred to as "pinning". To pin an index, select the index from the indexes set and perform any of the following actions:
 
-def indexer(bv: BinaryView):
-  for func in bv.functions:
-    instr_count = len(list(func.instructions))
-    if instr_count > 100:
-      yield func
-```
+* Click the hamburger menu and select `Pin Index to New Pane`
+* Right-click anywhere on the index table and select `Pin Index to New Pane`
 
-As the indexer script finds matching items, Sidekick will add them as entries in the index table, showing both the address of the item location and the item itself.
+This action creates a new pane within the main view frame with the content of the selected index. From the pinned index, you can perform any of the following actions:
 
-![Indexers Sample Table](../images/indexers_sample_table.png)
+* Search the pinned index entries
+* Sort index entries by column value
+* Any right-click context menu action supported in the index table (excluding `Pin Index to New Pane`)
 
-Note: A single indexer script can yield more than one item type. This allows users to index a variety of types of items in the binary using a single script.
+## Index Entry Metadata
 
-### Returning Metadata in an Indexer Script
+Each index table entry at a mininum includes a Binary Ninja object and its address, displayed as the `Entry` and `Address` table fields, respectively. When an entry is added to a given index using the `add_entry()` Sidekick API, the first parameter is a value whose type is a supported Binary Ninja object that can be navigated to via address. This method also accepts a second parameter `metadata` that is a dictionary object storing additional information that can be displayed in the index table as key-value pairs. Each key in the `metadata` object is the name of a column in the table, and its associated value is the value placed in the associated column for that index table entry row.
 
-Sidekick also supports the ability for indexer scripts to return metadata with an item. Metadata are stored as a dictionary of key-value pairs. To provide metadata in your script, return the item and metadata dictionary as a tuple `(item, metadata)`. For example, we can extend the sample indexer script above to also return the number of instructions as a metadata item:
+For example, the following script adds the instruction count for each function as metadata that gets displayed as a separate column `insn_cnt` in the index table shown below:
 
 ```
-from binaryninja import *
-from Vector35_Sidekick.indexing import IndexedValue
-
-def indexer(bv: BinaryView):
-  for func in bv.functions:
-    instr_count = len(list(func.instructions))
-    metadata = {'instr_count': instr_count}
-    if instr_count > 100:
-      yield (func, metadata)
+with open_index(bv, 'Function Instruction Counts') as index:
+    for func in bv.functions:
+        insn_cnt = len(list(func.instructions))
+        index.add_entry(func, {"insn_cnt": insn_cnt})
 ```
 
-When metadata are returned by the script, Sidekick will include additional columns in the index table, one for each key in the metadata.  The column header is set to the metadata key name, and the value in that column for that entry is the value from the metadata key-value pair.
+![Index Entry Metadata](../images/index_entry_metadata.png)
 
-![Indexers Metadata](../images/indexers_metadata.png)
-
-Note: Entries in the index table can be sorted by metadata columns, which provides flexibility to the user to sort based on the desired metadata key.
+!!! note
+    Index table entries can be sorted by metadata columns.
