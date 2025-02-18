@@ -540,50 +540,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../analysis_workbench/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Analysis Workbench Sidebar
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../llmoperator_model_catalog/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    LLMOperator Model Catalog Sidebar
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../investigations/" class="md-nav__link">
         
   
@@ -1050,8 +1006,12 @@
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
 <p>Sidekick uses features derived from BinaryNinja's static analysis and consolidates them into a single graph that captures the relationships between functions. The graph is uploaded to the Sidekick service where it is partitioned into components, arranged hierarchically to form a tree. The tree is then displayed in the <code>Symbols</code> sidebar.</p>
 <p>Sidekick attempts to name the components based on function names and other symbols it finds. If these features are not present in the binary, the components will be named based on their location in the binary.  However, you can always use the Sidekick Suggestions feature to infer more meaningful names.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The displaying of components in the <code>Symbols</code> sidebar is automatically supported starting in Binary Ninja version 3.6. To display components in the <code>Symbols</code> sidebar for prior versions of Binary Ninja (that support it as an experimental feature), go to the <code>Settings</code> tab, check the <code>Enable the new Symbols UI</code> checkbox, and restart Binary Ninja.</p>
+</div>
 <h2 id="how-to-use-it">How to use it<a class="headerlink" href="#how-to-use-it" title="Permanent link">&para;</a></h2>
-<p>Component Creation applies to the current function or a set of functions depending on which operation is performed. To create a component for the current function, click on the <code>Create Component</code> item in the <code>Plugins/Sidekick</code> menu.</p>
+<p>Component Creation applies to the current function or a set of functions depending on which operation is performed. To create a component for the current function, click on the <code>Create Component</code> item in the <code>Plugins/Sidekick</code> menu. Components can also be created for the set of functions within the current index of the <code>Sidekick Indexes</code> sidebar. To create components for the functions in the current index, click on the <code>Create Components in Current Index</code> item in the <code>Plugins/Sidekick</code> menu or <code>Create components for functions in this index</code> icon in the <code>Sidekick Indexes</code> sidebar</p>
 <p>The operation can take a few minutes to complete, depending on the number of functions selected. When it's done, you'll see the components in the <code>Symbols</code> sidebar.</p>
 <h2 id="how-to-customize-it">How to customize it<a class="headerlink" href="#how-to-customize-it" title="Permanent link">&para;</a></h2>
 <p>The component creation algorithm has several parameters that you can adjust to customize its behavior. To adjust these parameters, go to the Settings tab and locate the <code>Sidekick.components</code> section. The following options are available:</p>
@@ -1168,7 +1128,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
