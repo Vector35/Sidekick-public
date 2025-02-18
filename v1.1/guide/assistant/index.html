@@ -1,0 +1,1380 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../briefs/">
+      
+      
+        <link rel="next" href="../investigations/">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
+    
+    
+      
+        <title>Assistant Sidebar - Binary Ninja Sidekick User Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../docs.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#assistant" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Binary Ninja Sidekick User Documentation" class="md-header__button md-logo" aria-label="Binary Ninja Sidekick User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Binary Ninja Sidekick User Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Assistant Sidebar
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Binary Ninja Sidekick User Documentation" class="md-nav__button md-logo" aria-label="Binary Ninja Sidekick User Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Binary Ninja Sidekick User Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    User's Guide
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            User's Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../indexes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Indexes Sidebar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_insight_map/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Insight Map View
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Suggestions Sidebar
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Suggestions Sidebar
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suggestions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structures/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure Recovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../variables/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variable Naming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fields/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structure and Field Naming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function_naming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Naming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../briefs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Descriptions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Assistant Sidebar
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Assistant Sidebar
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renaming-page-titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Renaming Page Titles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#truncating-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Truncating Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Messages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recording-private-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recording Private Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-new-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Lines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-messagesnotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Messages/Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-messagesnotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting Messages/Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-message-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying Message Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Python Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-python-code-to-sidekick-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Python Code to Sidekick Index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Messages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-to-message-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating to Message Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#append-message-to-function-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Append Message to Function Comment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#append-message-to-function-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Append Message to Function Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-assistant-page-for-current-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Assistant Page for Current Address
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../investigations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Investigations Sidebar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../components/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Component Creation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation View
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_comment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code Comments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../function_callee_naming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function Callee Naming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Known Issues
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Known Issues
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issues/ski-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SKI-1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../issues/ski-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SKI-2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sidekick
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/legal-terms-and-conditions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Legal Terms and Conditions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/open-source/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Source
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#selecting-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selecting Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renaming-page-titles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Renaming Page Titles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#truncating-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Truncating Pages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sending-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Messages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recording-private-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recording Private Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-new-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding New Lines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-messagesnotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Editing Messages/Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-messagesnotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deleting Messages/Notes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying-message-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      Copying Message Text
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-python-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Python Code
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-python-code-to-sidekick-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding Python Code to Sidekick Index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Messages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#navigating-to-message-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      Navigating to Message Location
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#append-message-to-function-comment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Append Message to Function Comment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#append-message-to-function-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Append Message to Function Documentation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-assistant-page-for-current-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Assistant Page for Current Address
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="assistant">Assistant<a class="headerlink" href="#assistant" title="Permanent link">&para;</a></h1>
+<p>The Sidekick Assistant provides a simple chat interface to capture interactions with the Sidekick AI Assistant in a per-binary collection of pages.</p>
+<p>Each message in the page contains a link to the location in the binary that was active when the message was added for additional context and quick navigation. Clicking on a message on the page will navigate the current view to the location linked to that message.</p>
+<p>As new functions are visited that are associated with messages on the page, the scope of the code that the Sidekick Assistant is aware of for that page is expanded. This enables the Sidekick Assistant to answer questions pertaining to multiple functions. The Sidekick Assistant automatically requests the amount and level (e.g. disassembly, IL) of code necessary to complete a request.</p>
+<p>Users may add/delete pages to/from the Notebook. Each message on the page can be edited and/or removed.</p>
+<h2 id="selecting-pages">Selecting Pages<a class="headerlink" href="#selecting-pages" title="Permanent link">&para;</a></h2>
+<p>To select a page, click on the drop-down list of pages and select the desired page</p>
+<h2 id="adding-pages">Adding Pages<a class="headerlink" href="#adding-pages" title="Permanent link">&para;</a></h2>
+<p>To add a page, click on the <code>New Page</code> button or select <code>New Page</code> from the hamburger drop-down menu</p>
+<h2 id="renaming-page-titles">Renaming Page Titles<a class="headerlink" href="#renaming-page-titles" title="Permanent link">&para;</a></h2>
+<p>To rename a page title, select <code>Rename Page</code> from the hamburger drop-down menu</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>New pages are assigned a default page title. If the page title has not been set by the user, then after the first response to a message request completes, the page title is automatically set to a value relevant to the content of that request and response.</p>
+</div>
+<h2 id="deleting-pages">Deleting Pages<a class="headerlink" href="#deleting-pages" title="Permanent link">&para;</a></h2>
+<p>To delete a page, select the desired page from the drop-down list of pages and select <code>Delete Page</code> from the hamburger drop-down menu</p>
+<h2 id="truncating-pages">Truncating Pages<a class="headerlink" href="#truncating-pages" title="Permanent link">&para;</a></h2>
+<p>The message history within a page can be truncated in order to delete all subsequent messages after a selected message. To truncate a page after a selected message, right-click on a message and select <code>Truncate</code></p>
+<h2 id="sending-messages">Sending Messages<a class="headerlink" href="#sending-messages" title="Permanent link">&para;</a></h2>
+<p>Messages are sent to the Assistant for response. To send a message to the Assistant for response, enter a message in the message box and perform any of the following actions:</p>
+<ul>
+<li>Press <code>Return</code></li>
+<li>Click on the <code>Send a Message</code> button</li>
+<li>Select <code>Send Message</code> from the hamburger menu</li>
+</ul>
+<h2 id="recording-private-notes">Recording Private Notes<a class="headerlink" href="#recording-private-notes" title="Permanent link">&para;</a></h2>
+<p>Notes are items on the page that are not sent to the Assistant for response. To record a note on the page, enter a message in the message box and perform any of the following actions:</p>
+<ul>
+<li>Press <code>Control + Return</code> (<code>Command + Return</code> on MacOS)</li>
+<li>Select <code>Record Note</code> from the hamburger drop-down menu</li>
+</ul>
+<h2 id="adding-new-lines">Adding New Lines<a class="headerlink" href="#adding-new-lines" title="Permanent link">&para;</a></h2>
+<p>To add a newline to a Message or Note, press <code>Shift + Return</code></p>
+<h2 id="editing-messagesnotes">Editing Messages/Notes<a class="headerlink" href="#editing-messagesnotes" title="Permanent link">&para;</a></h2>
+<p>Messages/Notes can be edited. To edit a message/note, right-click the message/note and select <code>Edit</code>. In the <code>Edit Message</code> window (that pops up), apply edits and click <code>Accept</code></p>
+<h2 id="deleting-messagesnotes">Deleting Messages/Notes<a class="headerlink" href="#deleting-messagesnotes" title="Permanent link">&para;</a></h2>
+<p>Messages/Notes can be deleted from the page. To delete a message/note, right-click the message/note and select <code>Delete</code>.</p>
+<h2 id="copying-message-text">Copying Message Text<a class="headerlink" href="#copying-message-text" title="Permanent link">&para;</a></h2>
+<p>To copy a selection of text within the message history, select the text to copy and perform any of the following actions:</p>
+<ul>
+<li>Press <code>Control + C</code> (<code>Command + C</code> on MacOS)</li>
+<li>Right-click the selection and select <code>Copy Text</code></li>
+</ul>
+<p>To copy an entire message within the history, right-click the message and select <code>Copy Text</code></p>
+<h2 id="running-python-code">Running Python Code<a class="headerlink" href="#running-python-code" title="Permanent link">&para;</a></h2>
+<p>The Assistant is able to generate Python code that can be run directly in Binary Ninja's Python Console. To run the Python code that the Assistant generates in the message history, right-click the Python code text box and select <code>Run Code in Python Console</code></p>
+<h2 id="adding-python-code-to-sidekick-index">Adding Python Code to Sidekick Index<a class="headerlink" href="#adding-python-code-to-sidekick-index" title="Permanent link">&para;</a></h2>
+<p>The Assistant is able to generate Python code that can be added to the Sidekick Index as a Sidekick Index Topic script. To add the Python code that the Assistant generates in the message history, right-click the Python code text box and select <code>Add Code to Sidekick Indexes</code></p>
+<h2 id="search-messages">Search Messages<a class="headerlink" href="#search-messages" title="Permanent link">&para;</a></h2>
+<p>To search for content within messages of the current page, enter a search term in the <code>Search messages...</code> text box</p>
+<h2 id="navigating-to-message-location">Navigating to Message Location<a class="headerlink" href="#navigating-to-message-location" title="Permanent link">&para;</a></h2>
+<p>Each message is linked to the location in the binary that was active when the message was added. In order to navigate to that location in the binary, click on the message or right-click on the message and select <code>Go to Address</code></p>
+<h2 id="append-message-to-function-comment">Append Message to Function Comment<a class="headerlink" href="#append-message-to-function-comment" title="Permanent link">&para;</a></h2>
+<p>To append a message to the Function Comment for the function associated with the message, right-click and select <code>Append to Function Comment</code></p>
+<h2 id="append-message-to-function-documentation">Append Message to Function Documentation<a class="headerlink" href="#append-message-to-function-documentation" title="Permanent link">&para;</a></h2>
+<p>To append a message to the documentation of the function associated with the message, right-click and select <code>Append to Documentation</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The message is appended to the <code>ADDENDUM</code> section of the documentation that can be viewed in the <code>Documentation View</code> or <code>Investigations Sidebar</code> for the associated function.</p>
+</div>
+<h2 id="create-assistant-page-for-current-address">Create Assistant Page for Current Address<a class="headerlink" href="#create-assistant-page-for-current-address" title="Permanent link">&para;</a></h2>
+<p>To create a new page for the current address, select <code>Create Assistant Page for Current Address</code> from the <code>Plugins-&gt;Sidekick</code> menu.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This operation creates a new (empty) page named "&lt;function_name&gt;:&lt;address&gt;", where &lt;function_name&gt; is the name of the current function and &lt;address&gt; is the current address.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Copyright 2015-2024, Vector 35 Inc
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
