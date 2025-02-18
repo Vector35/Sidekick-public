@@ -479,6 +479,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rejecting-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rejecting Suggestions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#auto-suggestions" class="md-nav__link">
     <span class="md-ellipsis">
       Auto-Suggestions
@@ -491,6 +500,15 @@
   <a href="#saving-suggestions" class="md-nav__link">
     <span class="md-ellipsis">
       Saving Suggestions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-from-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback from Suggestions
     </span>
   </a>
   
@@ -644,6 +662,50 @@
   
   <span class="md-ellipsis">
     Assistant Sidebar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analysis_workbench/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Analysis Workbench Sidebar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../llmoperator_model_catalog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLMOperator Model Catalog Sidebar
     
   </span>
   
@@ -1045,6 +1107,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rejecting-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rejecting Suggestions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#auto-suggestions" class="md-nav__link">
     <span class="md-ellipsis">
       Auto-Suggestions
@@ -1057,6 +1128,15 @@
   <a href="#saving-suggestions" class="md-nav__link">
     <span class="md-ellipsis">
       Saving Suggestions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-from-suggestions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback from Suggestions
     </span>
   </a>
   
@@ -1097,6 +1177,7 @@
 <li><a href="../function_naming/">Name Functions</a></li>
 <li><a href="../briefs/">Describe Function</a></li>
 <li><a href="../function_naming/#name-callee-functions">Name Function Callees</a></li>
+<li>Simplify Symbols</li>
 </ul>
 <p>As Sidekick generates suggestions, users are able to review and accept or reject them.</p>
 <p>The following sections detail the actions that users can take within the Suggestions sidebar. To get the most use out of the Suggestions features, read <a href="./#tips-on-using-suggestions">Tips on Using Suggestions</a></p>
@@ -1104,11 +1185,42 @@
 <p>Users have two primary methods for requesting suggestions: general and specific. Suggestions returned by Sidekick are added to the suggestions tree and organized by function within the Sidekick Suggestions sidebar. Suggestions will accumulate within the tree until applied or cleared by the user.</p>
 <h3 id="general-suggestions">General Suggestions<a class="headerlink" href="#general-suggestions" title="Permanent link">&para;</a></h3>
 <p>When requesting general suggestions, Sidekick will determine what suggestions to make based on the current state of the function. Sidekick makes suggestions in stages according to the following order of categories:</p>
-<ol>
-<li>Code Suggestions - These are suggestions that impact IL generation (e.g., structure recovery, dead store elimination, variable types, and parameter counts)</li>
-<li>Name Suggestions - These are suggestions that impact names of things (e.g. variable names, type names, subroutine names, etc)</li>
-<li>Metadata Suggestions - These are suggestions that add information about things (e.g., comments, documentation)</li>
-</ol>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Description</th>
+<th>Suggestion Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code Transformation</td>
+<td>Impacts IL generation</td>
+<td>Recover Structures, Eliminate Dead Stores</td>
+</tr>
+<tr>
+<td>Contextual Identifiers</td>
+<td>Adds context to the current function</td>
+<td>Name Callee Functions, Simplify Symbols</td>
+</tr>
+<tr>
+<td>Structural Identifiers</td>
+<td>Impacts structure names</td>
+<td>Name Structures, Name Fields</td>
+</tr>
+<tr>
+<td>Local Identifiers</td>
+<td>Impacts names of elements local to the current function</td>
+<td>Name Variables, Name Data Variables, Name Function</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>Adds information about the current function</td>
+<td>Comment Function</td>
+</tr>
+</tbody>
+</table>
 <p>As users iteratively request general suggestions, Sidekick will generate other suggestion types during its progression through each suggestion stage.</p>
 <p>To request general suggestions for the current function, perform any of the following actions:
 - Click the <code>Make suggestions for: &lt;current_function&gt;</code> button
@@ -1143,6 +1255,10 @@
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Applying a suggestion submits feedback to up-vote the suggestion. See <a href="./#feedback-for-suggestions">Feedback for Suggestions</a> for more information.</p>
+</div>
 <h2 id="clearing-suggestions">Clearing Suggestions<a class="headerlink" href="#clearing-suggestions" title="Permanent link">&para;</a></h2>
 <p>Suggestions returned by Sidekick in the suggestions tree can be cleared in the following ways:</p>
 <ul>
@@ -1154,11 +1270,48 @@
 <li>To clear a selection of suggestions, select each suggestion you want to clear (using <code>Cntrl + Click</code> or <code>Shift + Click</code> depending on the desired selection scope), right-click, and select <code>Clear</code></li>
 <li>To clear all suggestions for the current function, select <code>Clear and Suggest for: &lt;current_function&gt;</code> from the hamburger menu. (Note: If auto-suggestions are disabled, then Sidekick will not make suggestions after clearing suggestions for the current function.)</li>
 </ul>
+<h2 id="rejecting-suggestions">Rejecting Suggestions<a class="headerlink" href="#rejecting-suggestions" title="Permanent link">&para;</a></h2>
+<p>Suggestions returned by Sidekick in the suggestions tree can be rejected as follows:</p>
+<ul>
+<li>To reject a selection of suggestions, select each suggestion you want to reject (using <code>Cntrl + Click</code> or <code>Shift + Click</code> depending on the desired selection scope), right-click, and select <code>Reject</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Rejecting a suggestion submits feedback to down-vote the suggestion. See <a href="./#feedback-for-suggestions">Feedback for Suggestions</a> for more information.</p>
+</div>
 <h2 id="auto-suggestions">Auto-Suggestions<a class="headerlink" href="#auto-suggestions" title="Permanent link">&para;</a></h2>
 <p>Sidekick supports the ability to generate suggestions automatically when a user dwells at a given location for a period of time (configurable in Settings). When enabled, the user simply clicks on a location in a function, stays there for the configured time, and then Sidekick starts to generate suggestions for that function. After a user applies all of the suggestions for the current function, then Sidekick will generate another set of suggestions based on the updated function. This iterative process repeats until no more suggestions can be made.</p>
 <p>The <code>sidekick.suggestions.auto_suggest_dwell_time</code> setting controls the dwell time (in seonds) for auto-suggestions. Set to 0 to disable auto-suggestions.</p>
 <h2 id="saving-suggestions">Saving Suggestions<a class="headerlink" href="#saving-suggestions" title="Permanent link">&para;</a></h2>
 <p>When saving a BNDB, all suggestions currently in the suggestions tree are stored in the BNDB.  When re-opening a saved BNDB, suggestions stored in the BNDB are reloaded in the suggetions tree.</p>
+<h2 id="feedback-from-suggestions">Feedback from Suggestions<a class="headerlink" href="#feedback-from-suggestions" title="Permanent link">&para;</a></h2>
+<p>For the purpose of product improvement, Sidekick implements a simple up-/down-vote mechanism for collecting feedback on the quality of its suggestions. The following feedback is submitted for each suggestion action:</p>
+<table>
+<thead>
+<tr>
+<th>Suggestion Action</th>
+<th>Feedback Submitted</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apply</td>
+<td>Up-Vote</td>
+</tr>
+<tr>
+<td>Reject</td>
+<td>Down-Vote</td>
+</tr>
+<tr>
+<td>Clear</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Feedback is only collected for non-commercial plans or for commercial plans where the user has opted in to allow collection. Commercial plan users can log in to their Sidekick account and update their plan to allow/disallow collection at any time.</p>
+</div>
 <h2 id="tips-on-using-suggestions">Tips on Using Suggestions<a class="headerlink" href="#tips-on-using-suggestions" title="Permanent link">&para;</a></h2>
 <p>The following lists several ways to use Suggestions more easily and effectively:</p>
 <ol>
@@ -1219,7 +1372,7 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
