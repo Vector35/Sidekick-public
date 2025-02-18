@@ -66,3 +66,7 @@ markdown_extensions:
       permalink: True
 extra_css:
   - docs.css
+
+extra:
+  version:
+    provider: mike
