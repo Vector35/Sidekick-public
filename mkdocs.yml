@@ -70,3 +70,5 @@ extra_css:
 extra:
   version:
     provider: mike
+    alias: true
+    default: latest
