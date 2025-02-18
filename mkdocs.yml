@@ -66,8 +66,7 @@ extra_css:
   - docs.css
 
 plugins:
-  - mike:
-      alias_type: redirect
+  - mike
 
 extra:
   version:
