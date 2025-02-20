@@ -1,0 +1,9 @@
+/* Modify the material default scheme to set the primary fg color to the one binja uses */
+[data-md-color-scheme="default"] {
+    --md-primary-fg-color: #d73726;
+}
+
+/* Modify the material slate scheme to set the primary fg color to the one binja uses */
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #d73726;
+}
