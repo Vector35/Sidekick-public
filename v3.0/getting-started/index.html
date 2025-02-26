@@ -1554,16 +1554,14 @@
 <p>The <code>Analysis Console</code> sidebar provides a chat interface to interact with the Sidekick <code>Analysis Assistant</code> for a given scope of functions. These conversations are stored for easy reference.</p>
 <p><img alt="Analysis Console" src="../images/analysis-console-empty.png" /></p>
 <p>Ask a question about the current function</p>
-<p><img alt="Analyisis Assistant Ask Question" src="../images/notebook_ask_question.png" /></p>
+<p><img alt="Analyisis Console Ask Question" src="../images/analysis-console-ask-question.png" /></p>
 <p>Navigate to another function and ask a question about that function</p>
-<p><img alt="Analysis Assistant Add Second Function" src="../images/notebook_add_second_function.png" /></p>
-<p>Add a private note to the session that does not get sent to the <code>Analysis Assistant</code></p>
-<p><img alt="Analysis Assistant Add Note" src="../images/notebook_add_note.png" /></p>
+<p><img alt="Analysis Console Add Second Function" src="../images/analysis-console-ask-second-question.png" /></p>
 <h4 id="analysis-indexes"><strong>Analysis Indexes</strong><a class="headerlink" href="#analysis-indexes" title="Permanent link">&para;</a></h4>
 <p>The <code>Analysis Indexes</code> sidebar manages collections of items generated through analysis of the binary. Each collection (referred to as an "index") contains a table of items in the binary (e.g. functions, instructions, strings, etc.). By default, when opening a binary for the first time, the <code>Analyisis Indexes</code> sidebar does not contain any indexes. However, you can create new indexes, add entries to them, and view the entries in the table.</p>
-<p><img alt="Default Indexes" src="../images/indexes_default.png" /></p>
+<p><img alt="Default Indexes" src="../images/analysis-indexes-empty.png" /></p>
 <p>Try adding an index by running one of the example scripts from the <code>Automation Workbench</code> (e.g. High-Level Functions). To do this, open the <code>Automation Workbench</code> Sidebar, enter "High" in the search box, select the "High-Level Functions" script, and click <code>Run</code>. Once the script completes, open the <code>Analyisis Indexes</code> sidebar, select "High-Level Functions" from the indexes drop-down combobox, and view the entries in the table.</p>
-<p><img alt="High-Level Functions Index" src="../images/indexes_high_level_functions.png" /></p>
+<p><img alt="High-Level Functions Index" src="../images/analysis-indexes-high-level-functions.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Sidekick legacy indexer scripts (from Sidekick 1.x) can been converted to scripts in the Automation Workbench. Any legacy indexer scripts stored in a user's Binary Ninja Database (BNDB) or User Directory can be converted by selecting the appropriate <code>Import Indexer Scripts</code> action from the Sidekick Plugin main menu.</p>
@@ -1572,25 +1570,22 @@
 <h4 id="code-insight-map"><strong>Code Insight Map</strong><a class="headerlink" href="#code-insight-map" title="Permanent link">&para;</a></h4>
 <p>The <code>Code Insight Map</code> is a Binary Ninja view that enables you to visualize the calling relationships between items in <code>Analysis Indexes</code> using a customizable call-oriented graph. This view allows you to quickly obtain a top-level understanding of program behaviors by visualizing the calling relationships between functions and their focused content.</p>
 <p>Select the <code>Code Insight Map</code> view from the View drop-down menu</p>
-<p><img alt="Code Insight Map" src="../images/code_insight_map.png" /></p>
+<p><img alt="Code Insight Map" src="../images/code-insight-map.png" /></p>
 <p>Enable/disable displayed topics</p>
 <p>Adjust Call Depth sliders to expand/collapse the call graph context of the given function</p>
 <h4 id="automation-workbench"><strong>Automation Workbench</strong><a class="headerlink" href="#automation-workbench" title="Permanent link">&para;</a></h4>
 <p>The <code>Automation Workbench</code> sidebar provides an interface for creating, modifying, and running scripts that blend both the capabilities of Python code and large language models (LLMs) to automate repeated tasks.</p>
-<p><img alt="Automation Workbench" src="../images/analysis_workbench.png" /></p>
-<p>Try running the existing example script named "High-Level Functions" and click <code>Run</code>. This particular script outputs results to an Index named "High-Level Functions", which can be viewed in the <code>Analyisis Indexes</code> sidebar.</p>
-<p><img alt="Run Automation Workbench Script" src="../images/analysis_workbench_run_script.png" /></p>
-<p>Try describing a new automation task and pressing <code>Enter</code>, which will open a new script editor. Sidekick will generate an initial version of the script based on your analysis task description.</p>
-<p><img alt="Run Automation Workbench Script" src="../images/analysis_workbench_describe_task.png" />
-<img alt="Run Automation Workbench Script" src="../images/analysis_workbench_script_editor.png" /></p>
+<p><img alt="Automation Workbench" src="../images/automation-workbench.png" /></p>
+<p>Try running the existing example script named "High-Level Functions". Search for it in the Scripts tab when in Search Mode and click <code>Run</code>. This particular script outputs results to an Index named "High-Level Functions", which can be viewed in the <code>Analyisis Indexes</code> sidebar.</p>
+<p><img alt="Run Automation Workbench Script" src="../images/automation-workbench-run-script.png" /></p>
+<p>Try describing a new automation task and pressing <code>Enter</code>, which will open a new script editor. Sidekick will generate an initial version of the script based on your analysis task description and open the <code>Scripting Assistant</code> that works with you to refine your script.</p>
+<p><img alt="Run Automation Workbench Script" src="../images/automation-workbench-describe-task.png" /></p>
 <p>(Note: In this example, the script uses the <code>LLMOperator</code> class to perform a given task using an LLM based on an initial prompt and an input Binary Ninja object (e.g. <code>Function</code>).)</p>
-<p>The script editor also comes with the <code>Scripting Assistant</code> to provide you a chat-like interface to incrementally revise the script to do what you want.</p>
-<p><img alt="Run Automation Workbench Script" src="../images/analysis_workbench_coding_assistant.png" /></p>
-<p>Once you are satisfied with the script, try running it by clicking <code>Run</code>. Since this script outputs results to an Analysis Index named "CSV Processing Functions", open the "CSV Processing Functions" index within the <code>Analyisis Indexes</code> sidebar to view them.</p>
-<p><img alt="Run Automation Workbench Script" src="../images/analysis_workbench_run_script_in_editor.png" /></p>
+<p>Once you are satisfied with the script, try running it by clicking <code>Run</code>.</p>
+<p><img alt="Run Automation Workbench Script" src="../images/automation-workbench-run-script-in-edit-mode.png" /></p>
 <p>Provide us with feedback on how things went by selecting <code>Submit Feedback...</code> from the hamburger menu.</p>
-<p><img alt="Run Automation Workbench Script" src="../images/analysis_workbench_submit_feedback.png" />
-<img alt="Run Automation Workbench Script" src="../images/analysis_workbench_feedback_dialog.png" /></p>
+<p><img alt="Run Automation Workbench Script" src="../images/automation-workbench-submit-feedback.png" />
+<img alt="Run Automation Workbench Script" src="../images/automation-workbench-feedback-dialog.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Feedback is only collected for non-commercial plans or commercial-plan users that have opted-in for data collection.</p>
@@ -1598,11 +1593,9 @@
 <h4 id="decompilation-suggestions"><strong>Decompilation Suggestions</strong><a class="headerlink" href="#decompilation-suggestions" title="Permanent link">&para;</a></h4>
 <p>Use the <code>Decompilation Suggestions</code> sidebar to get suggestions for improving the clarity of the current function.</p>
 <p>Request Sidekick to make suggestions for you, or choose specific suggestions types yourself</p>
-<p><img src="../images/suggestions_make.png" alt="Suggestions" width="800"/></p>
+<p><img alt="Decompilation Suggestions" src="../images/decompilation-suggestions.png" /></p>
 <p>Review suggestions and accept the ones you want to apply</p>
-<p><img src="../images/suggestions_results.png" alt="Suggestions" width="800"/></p>
-<p>Sit back and watch Sidekick apply them</p>
-<p><img alt="Suggestions" src="../images/suggestions_apply_all.png" /></p>
+<p><img alt="Decompilation Suggestions" src="../images/decompilation-suggestions-results.png" /></p>
 
 
 
