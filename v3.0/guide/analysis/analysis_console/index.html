@@ -458,45 +458,45 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#searching-pages" class="md-nav__link">
+  <a href="#searching-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Searching Pages
+      Searching Sessions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#selecting-pages" class="md-nav__link">
+  <a href="#selecting-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Selecting Pages
+      Selecting Sessions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-pages" class="md-nav__link">
+  <a href="#adding-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Pages
+      Adding Sessions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#renaming-page-titles" class="md-nav__link">
+  <a href="#renaming-session-titles" class="md-nav__link">
     <span class="md-ellipsis">
-      Renaming Page Titles
+      Renaming Session Titles
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deleting-pages" class="md-nav__link">
+  <a href="#deleting-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Deleting Pages
+      Deleting Sessions
     </span>
   </a>
   
@@ -584,9 +584,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-raw-page" class="md-nav__link">
+  <a href="#view-raw-session" class="md-nav__link">
     <span class="md-ellipsis">
-      View Raw Page
+      View Raw Session
     </span>
   </a>
   
@@ -1320,45 +1320,45 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#searching-pages" class="md-nav__link">
+  <a href="#searching-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Searching Pages
+      Searching Sessions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#selecting-pages" class="md-nav__link">
+  <a href="#selecting-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Selecting Pages
+      Selecting Sessions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-pages" class="md-nav__link">
+  <a href="#adding-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Pages
+      Adding Sessions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#renaming-page-titles" class="md-nav__link">
+  <a href="#renaming-session-titles" class="md-nav__link">
     <span class="md-ellipsis">
-      Renaming Page Titles
+      Renaming Session Titles
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deleting-pages" class="md-nav__link">
+  <a href="#deleting-sessions" class="md-nav__link">
     <span class="md-ellipsis">
-      Deleting Pages
+      Deleting Sessions
     </span>
   </a>
   
@@ -1446,9 +1446,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#view-raw-page" class="md-nav__link">
+  <a href="#view-raw-session" class="md-nav__link">
     <span class="md-ellipsis">
-      View Raw Page
+      View Raw Session
     </span>
   </a>
   
@@ -1484,8 +1484,8 @@
 <li>Search, create, register, and run tools to assist in completing a user’s request</li>
 <li>Edit the binary</li>
 </ul>
-<p>The Analysis Console maintains a collection of conversations (referred to as "pages") with the Analysis Assistant. Each page contains a history of interactions with the Analysis Assistant. The Analysis Assistant performs best if the scope of a page is limited to a specific topic or set of functions. If you wish to switch topics, you should create a new page for that topic.</p>
-<p>In order to complete a user's request, the Analysis Assistant decides what information and <a href="#tools">tools</a> are needed for the task and may also ask for additional information or clarification from the user. The Assistant may also provide suggestions or ask questions to help the user understand the binary better. During its response, the Analysis Assistant provides a detailed explanation of the steps it took to complete the request. Each action it takes is recorded in the page history and can be expanded to view the details.</p>
+<p>The Analysis Console maintains a collection of "sessions" with the Analysis Assistant. Each session contains a history of interactions with the Analysis Assistant. The Analysis Assistant performs best if the scope of a session is limited to a specific topic or set of functions. If you wish to switch topics, you should create a new session for that topic.</p>
+<p>In order to complete a user's request, the Analysis Assistant decides what information and <a href="#tools">tools</a> are needed for the task and may also ask for additional information or clarification from the user. The Assistant may also provide suggestions or ask questions to help the user understand the binary better. During its response, the Analysis Assistant provides a detailed explanation of the steps it took to complete the request. Each action it takes is recorded in the session history and can be expanded to view the details.</p>
 <h2 id="binary-ninja-query-language-bnql">Binary Ninja Query Language (BNQL)<a class="headerlink" href="#binary-ninja-query-language-bnql" title="Permanent link">&para;</a></h2>
 <p>The Analysis Assistant uses the Binary Ninja Query Language (BNQL) to search for items in the binary. BNQL is a powerful query language that allows users to search for items in the binary using a wide range of criteria.  For more information on BNQL, refer to the <a href="../bnql/">BNQL documentation</a>.</p>
 <p>Analysis Assistant messages that use BNQL list the query used to search for items in the binary. Users can copy these queries and use them to add its results as entries to an Analysis Index. To do this, refer to the <a href="../analysis_indexes/#adding-entries">Analysis Indexes documentation</a>.</p>
@@ -1505,21 +1505,21 @@
 </ul>
 <p>The Analysis Assistant may create a new scripted tool to assist in completing a request. Users can also direct the Assistant to use a specific tool to complete a task.</p>
 <h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
-<h3 id="searching-pages">Searching Pages<a class="headerlink" href="#searching-pages" title="Permanent link">&para;</a></h3>
-<p>To search for content in pages, enter a search term in the <code>Search pages</code> text box. Results from all pages are displayed in the Analysis Console.</p>
-<p>To navigate to the message in its page for a given search result, hover over the result message and click the <code>Go to Message</code> button that appears.</p>
-<h3 id="selecting-pages">Selecting Pages<a class="headerlink" href="#selecting-pages" title="Permanent link">&para;</a></h3>
-<p>To select a page, click on the drop-down list of pages and select the desired page</p>
-<h3 id="adding-pages">Adding Pages<a class="headerlink" href="#adding-pages" title="Permanent link">&para;</a></h3>
-<p>To add a page, click on the <code>New Page</code> button or select <code>New Page</code> from the hamburger drop-down menu</p>
-<h3 id="renaming-page-titles">Renaming Page Titles<a class="headerlink" href="#renaming-page-titles" title="Permanent link">&para;</a></h3>
-<p>To rename a page title, select <code>Rename Page</code> from the hamburger drop-down menu</p>
+<h3 id="searching-sessions">Searching Sessions<a class="headerlink" href="#searching-sessions" title="Permanent link">&para;</a></h3>
+<p>To search for content in sessions, enter a search term in the <code>Search all sessions</code> text box. Results from all sessions are displayed in the Analysis Console.</p>
+<p>To navigate to the message in its session for a given search result, hover over the result message and click the <code>Go to Message</code> button that appears.</p>
+<h3 id="selecting-sessions">Selecting Sessions<a class="headerlink" href="#selecting-sessions" title="Permanent link">&para;</a></h3>
+<p>To select a session, click on the drop-down list of sessions and select the desired session</p>
+<h3 id="adding-sessions">Adding Sessions<a class="headerlink" href="#adding-sessions" title="Permanent link">&para;</a></h3>
+<p>To add a session, click on the <code>New Session</code> button or select <code>New Session</code> from the hamburger drop-down menu</p>
+<h3 id="renaming-session-titles">Renaming Session Titles<a class="headerlink" href="#renaming-session-titles" title="Permanent link">&para;</a></h3>
+<p>To rename a session title, select <code>Rename Session</code> from the hamburger drop-down menu</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>New pages are assigned a default page title. If the page title has not been set by the user, then after the first response to a message request completes, the page title is automatically set to a value relevant to the content of that request and response.</p>
+<p>New sessions are assigned a default session title. If the session title has not been set by the user, then after the first response to a message request completes, the session title is automatically set to a value relevant to the content of that request and response.</p>
 </div>
-<h3 id="deleting-pages">Deleting Pages<a class="headerlink" href="#deleting-pages" title="Permanent link">&para;</a></h3>
-<p>To delete a page, select the desired page from the drop-down list of pages and select <code>Delete Page</code> from the hamburger drop-down menu</p>
+<h3 id="deleting-sessions">Deleting Sessions<a class="headerlink" href="#deleting-sessions" title="Permanent link">&para;</a></h3>
+<p>To delete a session, select the desired session from the drop-down list of sessions and select <code>Delete Session</code> from the hamburger drop-down menu</p>
 <h3 id="sending-messages">Sending Messages<a class="headerlink" href="#sending-messages" title="Permanent link">&para;</a></h3>
 <p>Messages are sent to the Analysis Assistant for response. To send a message, enter a message in the message box and perform any of the following actions:</p>
 <ul>
@@ -1528,7 +1528,7 @@
 <li>Select <code>Send Message</code> from the hamburger menu</li>
 </ul>
 <h3 id="recording-notes">Recording Notes<a class="headerlink" href="#recording-notes" title="Permanent link">&para;</a></h3>
-<p>Notes are items on the page that are not sent to the Analysis Assistant for response. To record a note on the page, enter a message in the message box and perform any of the following actions:</p>
+<p>Notes are items on the session that are not sent to the Analysis Assistant for response. To record a note on the session, enter a message in the message box and perform any of the following actions:</p>
 <ul>
 <li>Press <code>Control + Return</code> (<code>Command + Return</code> on MacOS)</li>
 <li>Select <code>Record Note</code> from the hamburger drop-down menu</li>
@@ -1537,7 +1537,7 @@
 <p>Use messages/notes can be edited. To edit a user message/note, hover over the message/note, click the <code>Edit</code> button that appears. In the <code>Edit Message</code> dialog that pops up, apply edits and click <code>Accept</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This action causes the Analysis Assistant to re-evaluate the message history up to and including the edited message and provide a new response. All subsequent messages are removed from the page.</p>
+<p>This action causes the Analysis Assistant to re-evaluate the message history up to and including the edited message and provide a new response. All subsequent messages are removed from the session.</p>
 </div>
 <p>To add new lines to a user message/note, press <code>Shift + Return</code>.</p>
 <div class="admonition note">
@@ -1568,8 +1568,8 @@
 <p>To view or manage the active tools, select <code>Tools...</code> from the hamburger drop-down menu. In the <code>Active Tools</code> dialog that pops up, you can view the current list of active tools.</p>
 <p>To pin/unpin a user tool (i.e. not a system tool), click on the pin icon next to the tool name. Pinned tools are not removed from the list of active tools as the Analysis Assistant manages its limited number of active tool slots.</p>
 <p>To remove a user tool, click on the <code>Remove tool</code> button next to the tool name.</p>
-<h3 id="view-raw-page">View Raw Page<a class="headerlink" href="#view-raw-page" title="Permanent link">&para;</a></h3>
-<p>To view the raw page content, select <code>View Raw Page</code> from the hamburger drop-down menu. The raw page content is displayed in the <code>Raw Page Content</code> dialog that pops up. This content includes the full details of the page, including the message history and other page metadata. This information is useful for debugging and troubleshooting.</p>
+<h3 id="view-raw-session">View Raw Session<a class="headerlink" href="#view-raw-session" title="Permanent link">&para;</a></h3>
+<p>To view the raw session content, select <code>View Raw Session</code> from the hamburger drop-down menu. The raw session content is displayed in the <code>Raw Session Content</code> dialog that pops up. This content includes the full details of the session, including the message history and other session metadata. This information is useful for debugging and troubleshooting.</p>
 
 
 
