@@ -1,6 +1,6 @@
 # Getting Started
 
-Welcome to Binary Ninja Sidekick. This document will get you up and running and show you the main features of the Sidekick plugin. For more detailed information, check out the [User's Guide](guide/guide.md).
+Welcome to Binary Ninja Sidekick. This document will get you up and running and show you the main features of the Sidekick plugin. For more detailed information, check out the [User's Guide](guide/intro.md).
 
 ## Purchase a Sidekick Plan
 
@@ -20,9 +20,9 @@ The installation process is straightforward and takes only a few minutes.  You c
 
 ### Installing the Plugin
 
-Installing the Sidekick plugin is easy.  Launch the Plugin Manager by selecting `Plugins->Manage Plugins` from the main menu. From the Plugin Manager search for "Sidekick" and locate the Sidekick plugin.  Then click the `Install` button.
+Installing the Sidekick plugin is easy.  Launch the Plugin Manager by selecting `Plugins -> Manage Plugins` from the main menu. From the Plugin Manager search for "Sidekick" and locate the Sidekick plugin.  Then click the `Install` button.
 
-![Plugin Manager Install Sidekick](images/plugin_manager_install_sidekick.png)
+![Plugin Manager Install Sidekick](images/plugin-manager-install-sidekick.png)
 
 !!! note
 
@@ -34,11 +34,11 @@ Installing the Sidekick plugin is easy.  Launch the Plugin Manager by selecting 
 
 If an update for the installed Sidekick plugin is available, then choose one of the following methods for updating the Sidekick plugin:
 
-* Plugin Manager: Launch the Plugin Manager by selecting `Plugins->Manage Plugins` from the main menu. From the Plugin Manager search for "Sidekick" and locate the Sidekick plugin. If an update is available, then click the `Update` button.
+* Plugin Manager: Launch the Plugin Manager by selecting `Plugins -> Manage Plugins` from the main menu. From the Plugin Manager search for "Sidekick" and locate the Sidekick plugin. If an update is available, then click the `Update` button.
 
 ![Plugin Manager Update Sidekick](images/plugin_update_plugin_manager.png)
 
-* Automatic Notification (Sidekick 2.x or later): On plugin startup, Sidekick automatically checks for updates. If one is available, then Sidekick asks you if you want to install it. Click `Yes`. Once the update is complete, then you will need to restart Binary Ninja.
+* Automatic Notification: On plugin startup, Sidekick automatically checks for updates. If one is available, then Sidekick asks you if you want to install it. Click `Yes`. Once the update is complete, then you will need to restart Binary Ninja.
 
 ![Auto Update Sidekick](images/plugin_update_auto.png)
 
@@ -60,7 +60,7 @@ If an update is available, then complete the following steps to update the plugi
 
 To set your Sidekick API Key:
 
-* Open the Settings tab within Binary Ninja from the `Binary Ninja->Preferences->Settings` menu
+* Open the Settings tab within Binary Ninja from the `Binary Ninja -> Preferences->Settings` menu
 * Search for `sidekick.api_key`
 * Copy one of your API keys from your Sidekick account to the `Sidekick API Key` setting
 
@@ -76,7 +76,7 @@ Alternatively, the first time you launch the Sidekick plugin, you will be prompt
 The plugin will connect to the Sidekick service using the API key value in the `sidekick.api_key` setting.  If an API key is not provided, then you will not be able to access the Sidekick service.
 
 !!! note
-    All Sidekick features that do not rely on access to the Sidekick service are available to use for free. Refer [here](guide/guide.md#sidekick-service) for more information on which features require access to the Sidekick service.
+    All Sidekick features that do not rely on access to the Sidekick service are available to use for free. Refer [here](guide/intro.md#sidekick-service) for more information on which features require access to the Sidekick service.
 
 ### Sidekick Service Connection
 
@@ -86,157 +86,86 @@ You can configure the Sidekick plugin to connect to/disconnect from the Sidekick
 
 ### Basic Usage
 
-#### **Sidekick Analysis Workbench Sidebar** (Sidekick Version 2.x)
+#### **Analysis Console**
 
-Starting in Sidekick version 2.0, the Sidekick Analysis Workbench Sidebar provides an interface for creating, modifying, and running scripts that blend both the capabilities of Python code and large language models to perform a wide variety of program analysis tasks.
+The `Analysis Console` sidebar provides a chat interface to interact with the Sidekick `Analysis Assistant` for a given scope of functions. These conversations are stored for easy reference.
 
-![Analysis Workbench](images/analysis_workbench.png)
+![Analysis Console](images/analysis-console-empty.png)
 
-Try running the existing example script named "High-Level Functions" and click `Run`. This particular script outputs results to an Index named "High-Level Functions", which can be viewed in the Sidekick Indexes Sidebar.
+Ask a question about the current function
 
-![Run Analysis Workbench Script](images/analysis_workbench_run_script.png)
+![Analyisis Console Ask Question](images/analysis-console-ask-question.png)
 
-Try describing a new analysis task and pressing `Enter`, which will open a new script editor. Sidekick will generate an initial version of the script based on your analysis task description.
+Navigate to another function and ask a question about that function
 
-![Run Analysis Workbench Script](images/analysis_workbench_describe_task.png)
-![Run Analysis Workbench Script](images/analysis_workbench_script_editor.png)
+![Analysis Console Add Second Function](images/analysis-console-ask-second-question.png)
 
-(Note: In this example, the script uses the `LLMOperator` class to request a large language model to perform a given task based on an initial prompt and an input Binary Ninja object (e.g. `Function`).)
+#### **Analysis Indexes**
 
-The script editor also comes with the Sidekick Coding Assistant to provide you a chat-like interface to incrementally revise the script to do what you want.
+The `Analysis Indexes` sidebar manages collections of items generated through analysis of the binary. Each collection (referred to as an "index") contains a table of items in the binary (e.g. functions, instructions, strings, etc.). By default, when opening a binary for the first time, the `Analyisis Indexes` sidebar does not contain any indexes. However, you can create new indexes, add entries to them, and view the entries in the table.
 
-![Run Analysis Workbench Script](images/analysis_workbench_coding_assistant.png)
+![Default Indexes](images/analysis-indexes-empty.png)
 
-Once you are satisfied with the script, try running it by clicking `Run`. Since this script outputs results to an index named "CSV Processing Functions", open the "CSV Processing Functions" index within the Sidekick Indexes Sidebar to view them.
+Try adding an index by running one of the example scripts from the `Automation Workbench` (e.g. High-Level Functions). To do this, open the `Automation Workbench` Sidebar, enter "High" in the search box, select the "High-Level Functions" script, and click `Run`. Once the script completes, open the `Analyisis Indexes` sidebar, select "High-Level Functions" from the indexes drop-down combobox, and view the entries in the table.
 
-![Run Analysis Workbench Script](images/analysis_workbench_run_script_in_editor.png)
+![High-Level Functions Index](images/analysis-indexes-high-level-functions.png)
+
+!!! note
+
+    Sidekick legacy indexer scripts (from Sidekick 1.x) can been converted to scripts in the Automation Workbench. Any legacy indexer scripts stored in a user's Binary Ninja Database (BNDB) or User Directory can be converted by selecting the appropriate `Import Indexer Scripts` action from the Sidekick Plugin main menu.
+
+![Import Indexers](images/import_indexers.png)
+
+
+#### **Code Insight Map**
+
+The `Code Insight Map` is a Binary Ninja view that enables you to visualize the calling relationships between items in `Analysis Indexes` using a customizable call-oriented graph. This view allows you to quickly obtain a top-level understanding of program behaviors by visualizing the calling relationships between functions and their focused content.
+
+Select the `Code Insight Map` view from the View drop-down menu
+
+![Code Insight Map](images/code-insight-map.png)
+
+Enable/disable displayed topics
+
+Adjust Call Depth sliders to expand/collapse the call graph context of the given function
+
+#### **Automation Workbench**
+
+The `Automation Workbench` sidebar provides an interface for creating, modifying, and running scripts that blend both the capabilities of Python code and large language models (LLMs) to automate repeated tasks.
+
+![Automation Workbench](images/automation-workbench.png)
+
+Try running the existing example script named "High-Level Functions". Search for it in the Scripts tab when in Search Mode and click `Run`. This particular script outputs results to an Index named "High-Level Functions", which can be viewed in the `Analyisis Indexes` sidebar.
+
+![Run Automation Workbench Script](images/automation-workbench-run-script.png)
+
+Try describing a new automation task and pressing `Enter`, which will open a new script editor. Sidekick will generate an initial version of the script based on your analysis task description and open the `Scripting Assistant` that works with you to refine your script.
+
+![Run Automation Workbench Script](images/automation-workbench-describe-task.png)
+
+(Note: In this example, the script uses the `LLMOperator` class to perform a given task using an LLM based on an initial prompt and an input Binary Ninja object (e.g. `Function`).)
+
+Once you are satisfied with the script, try running it by clicking `Run`.
+
+![Run Automation Workbench Script](images/automation-workbench-run-script-in-edit-mode.png)
 
 Provide us with feedback on how things went by selecting `Submit Feedback...` from the hamburger menu.
 
-![Run Analysis Workbench Script](images/analysis_workbench_submit_feedback.png)
-![Run Analysis Workbench Script](images/analysis_workbench_feedback_dialog.png)
-
+![Run Automation Workbench Script](images/automation-workbench-submit-feedback.png)
+![Run Automation Workbench Script](images/automation-workbench-feedback-dialog.png)
 
 !!! note
 
     Feedback is only collected for non-commercial plans or commercial-plan users that have opted-in for data collection.
 
-#### **Sidekick Indexes Sidebar**
+#### **Decompilation Suggestions**
 
-##### Sidekick Version 2.x
-
-The Sidekick Indexes Sidebar manages a set of indexes for the current binary. Each index contains a table of items in the binary (e.g., functions, instructions, strings, etc.) that are added by scripts from the Analysis Workbench. By default, when opening a binary for the first time, the Indexes Sidebar does not contain any indexes.
-
-![Default Indexes](images/indexes_default.png)
-
-Try adding an index by running one of the example scripts from the Analysis Workbench (e.g. High-Level Functions). To do this, open the Analysis Workbench Sidebar, enter "High" in the search box, select the "High-Level Functions" script, and click `Run`. Once the script completes, open the Sidekick Indexes Sidebar, select "High-Level Functions" from the indexes drop-down combobox, and view the entries in the table.
-
-![High-Level Functions Index](images/indexes_high_level_functions.png)
-
-!!! note
-
-    Sidekick legacy indexer scripts (from Sidekick 1.x) can been converted to scripts in the Analysis Workbench. Any legacy indexer scripts stored in a user's Binary Ninja Database (BNDB) or User Directory can be converted by selecting the appropriate `Import Indexer Scripts` action from the Sidekick Plugin main menu.
-
-![Import Indexers](images/import_indexers.png)
-
-##### Sidekick Version 1.x
-
-The Sidekick Indexes Sidebar manages a set of indexes for the current binary. Each index contains a table of items in the binary (e.g., functions, instructions, strings, etc.) that are generated by running an indexer script related to a specific topic. Some indexer scripts for common items are included with Sidekick, or you can create your own.
-
-By default, the built-in index of `High-Level Functions` is loaded in the set the indexes for the current binary.  This index generates a list of functions with a high out-degree.
-
-![Indexers](images/indexers_default_topic.png)
-
-Try adding other indexes to the set of indexes for the current binary by clicking on the `New Index` button
-
-Search from existing indexes by describing the topic you are interested in
-
-![Indexers](images/indexers_search_topic.png)
-
-Accept the selected index in order to add it to the index
-
-![Indexers](images/indexers_select_topic.png)
-
-View and navigate to index entries
-
-![Indexers](images/indexers_view_and_navigate.png)
-
-If an index you are interested in does not exist, then create your own by providing a description of what you are looking for and allow Sidekick to generate the indexer script for you
-
-![Indexers](images/indexers_generate_indexer.png)
-
-#### **Sidekick Suggestions Sidebar**
-
-Once you have selected a function to investigate, use the `Sidekick Suggestions` sidebar to get suggestions for improving the clarity of the current function.
+Use the `Decompilation Suggestions` sidebar to get suggestions for improving the clarity of the current function.
 
 Request Sidekick to make suggestions for you, or choose specific suggestions types yourself
 
-![Suggestions](images/suggestions_make.png)
+![Decompilation Suggestions](images/decompilation-suggestions.png)
 
 Review suggestions and accept the ones you want to apply
 
-![Suggestions](images/suggestions_results.png)
-
-Sit back and watch Sidekick apply them
-
-![Suggestions](images/suggestions_apply_all.png)
-
-#### **Code Insight Map View**
-
-The `Code Insight Map View` is a call-graph oriented view centered on a selected function and includes items only from the index topics.  This view allows you to quickly visualize the calling relationships between functions and their index topics to aid program comprehension.
-
-Select the Code Insight Map view from the View drop-down menu
-
-![Code Insight Map](images/code_insight_map.png)
-
-Enable/disable displayed topics
-
-Adjust Call Depth sliders to expand/collapse the call graph context of the given function
-#### **Sidekick Assistant Sidebar**
-
-The Sidekick Assistant Sidebar provides a chat interface to interact with the Sidekick Assistant for a given scope of functions. These conversations are stored for easy reference.
-
-![Sidekick Assistant](images/notebook.png)
-
-Ask a question about the current function
-
-![Sidekick Assistant Ask Question](images/notebook_ask_question.png)
-
-Navigate to another function and ask a question about that function
-
-![Sidekick Assistant Add Second Function](images/notebook_add_second_function.png)
-
-Add a private note to the page that does not get sent to the Sidekick Assistant
-
-![Sidekick Assistant Add Note](images/notebook_add_note.png)
-
-#### **Sidekick Investigations Sidebar**
-
-The Sidekick Investigations Sidebar provides an interface for launching topic-specific investigations and documenting those findings for a given function. Currently, Sidekick offers a set of pre-defined investigations such as manpage-like information, instances of use-after-free, SQL injections, NULL pointer dereferences, and more.
-
-![Sidekick Investigations](images/investigations.png)
-
-Launch an investigation
-
-![Sidekick Manpage Investigation](images/launch_investigation.png)
-
-Edit findings
-
-![Sidekick Edit Investigation](images/investigations_edit.png)
-
-For a complete description of Sidekick's features, see the [User's Guide](guide/guide.md).
-
-#### **Documentation View**
-
-!!! note
-    This feature will be deprecated in a future release.
-
-The `Documentation View` provides a description of the current function very much in the style of a traditional man page. Sidekick will automatically generate documentation based on the function code; however, you are able to edit and/or extend this content as you wish.
-
-Select the Documentation View from the View drop-down menu
-
-![Selecting Documentation View](images/doc_view_default.png)
-
-Generate documentation
-
-![Generating Documentation](images/doc_view_results.png)
+![Decompilation Suggestions](images/decompilation-suggestions-results.png)

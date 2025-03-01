@@ -1,8 +1,8 @@
-# LLMOperator Model Catalog
+# LLM Operator Model Catalog
 
-The LLMOperator Model Catalog sidebar provides a convenient interface for managing the models used by LLMOperators in Analysis Workbench scripts.
+The LLM Operator Model Catalog provides a convenient interface for managing the models used by LLMOperators in Automation Workbench scripts.
 
-![LLMOperator](../images/llmoperator_model_catalog.png)
+![LLM Operator](../../images/llmoperator_model_catalog.png)
 
 ## Available Models
 

@@ -1,24 +1,24 @@
 # Code Insight Map
 
-The Code Insight Map is a call-graph oriented view focused on a selected function. The graph is comprised of nodes that represent the selected function and its calling ancestor and descendant functions.
+The Code Insight Map is a feature that enables you to visualize the calling relationships between items in [Analysis Indexes](analysis_indexes.md) using a customizable call-graph oriented view. The graph is comprised of nodes that represent functions and directed edges that represent the immediate calling relationship between functions (i.e. caller -> callee).
 
-Each node in the Code Insight Map contains only items pertaining to the index selected for display from the set of indexes for the current binary. This allows the user to quickly obtain a top-level understanding of a function's behavior by visualizing both the calling relationships between displayed functions and also their selected indexes.
+The content of each node includes the list of entries from the selected indexes contained within that function. This allows the user to quickly obtain a top-level understanding of program behaviors by visualizing the relationships between functions and their focused content.
 
 ## Opening the Code Insight Map
 
 The Code Insight Map is a separate view within Binary Ninja. To open the Code Insight Map, select `View -> Code Insight Map` from the main menu at the top of the window or click on the view drop-down menu in the current view frame and select `Code Insight Map`.
 
-## Adding/Removing Nodex (Indexes)
+## Selecting/Deselecting Nodes (Indexes)
 
 From the `Nodes` drop-down combo-box, click on an available index to select/deselect it for display.
 
-(Note: Indexes available for display in this combo-box are populated from the Sidekick Indexes. To add/remove indexes from the Sidekick Indexes, refer to [indexes](indexes.md).)
+(Note: Indexes available for display in this combo-box are populated from the Sidekick Analysis Indexes. To add/remove indexes available for display, refer to [Analysis Indexes](./analysis_indexes.md).)
 
-## Adding/Removing Edges
+## Selecting/Deselecting Edges
 
 From the `Edges` drop-down combo-box, click on an available index to select/deselect it for display.
 
-(Note: Indexes available for display in this combo-box are populated from the Sidekick Indexes. Sidekick will use the edge information contained in the selected indexes to create edges between nodes in the Code Insight Map. To add/remove indexes from the Sidekick Index, refer to [indexes](indexes.md).)
+(Note: Indexes available for display in this combo-box are populated from the Sidekick Analysis Indexes. Sidekick will use the edge information contained in the selected indexes to create edges between nodes in the Code Insight Map. To add/remove indexes available for display, refer to [Analysis Indexes](./analysis_indexes.md).)
 
 ## Adjusting the Call Depth
 
@@ -34,4 +34,4 @@ When using the pinned navigation setting (by selecting the Pin icon at the top o
 
 ## Create a Component from the Current Functions
 
-To create a component from the set of functions currently displayed in the Code Insight Map, right-click on the map and select `Create Component`
+To create a [component](../decompilation/components.md) from the set of functions currently displayed in the Code Insight Map, right-click on the map and select `Create Component`

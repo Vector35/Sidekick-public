@@ -30,15 +30,3 @@ Documentation for a selected function is editable using Markdown. To edit the do
 
 ## Delete Documentation
 To delete documentation for the current function, click the `Delete Documentation` button. This operation deletes all content from the documentation (including the `ADDENDUM` section) and also removes the Documentation tag from the current function.
-
-## Integration with the Sidekick Assistant
-Users can append messages from a Sidekick Assistant page to the documentation for the function linked to that message by right-clicking a message and selecting `Append to Documentation`. This operation creates the `ADDENDUM` section if not already present in the documentation, appends the message to the `ADDENDUM` section, and includes an address link to the location in the function for that message.
-
-
-## Tips on Using the Documentation View
-
-1. Due to the [Integration with the Assistant](./documentation.md#integration-with-the-sidekick-assistant), one potentially helpful workflow is to open the Assistant Sidebar and split the view to display both the code (e.g. Linear or Graph View) and the Documentation View.  Within this layout, as you get responses from the Sidekick Assistant on topic-focused questions, you can quickly append them to and visually reference them within the Documentation View.
-
-![Documentation Tips](../images/documentation_tips.png)
-
-

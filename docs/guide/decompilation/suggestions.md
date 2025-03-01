@@ -1,19 +1,18 @@
-# Introduction
+# Decompilation Suggestions
 
-The Suggestions sidebar enables users to request suggestions from Sidekick that are focused on improving the clarity of the current function. The types of suggestions that Sidekick offers include:
+The Sidekick Decompilation Suggestions sidebar enables users to request, review and apply suggestions from Sidekick that are focused on improving the clarity of the current function. The types of suggestions include:
 
-* [Recover Structures](./structures.md)
-* Eliminate Dead Stores
-* [Name Variables](./variables.md)
-* [Name Structures and Fields](./fields.md)
-* [Name Functions](./function_naming.md)
-* [Describe Function](./briefs.md)
-* [Name Function Callees](./function_naming.md#name-callee-functions)
+* [Recover and Define Structure Types](./structures.md)
+* [Rename Structure Types and Fields](./naming.md#structures-and-fields)
+* [Rename Variables](./naming.md#variables)
+* [Rename Function](./naming.md#functions)
+* [Comment Function](./comments.md#functions)
+* [Rename Function Callees](./naming.md#function-callees)
 * Simplify Symbols
 
-As Sidekick generates suggestions, users are able to review and accept or reject them.
+As Sidekick generates suggestions, users are able to review them and then accept or reject them.
 
-The following sections detail the actions that users can take within the Suggestions sidebar. To get the most use out of the Suggestions features, read [Tips on Using Suggestions](./suggestions.md#tips-on-using-suggestions)
+The following sections detail the actions that users can take within the Decompilation Suggestions sidebar. To get the most use out of the Suggestions features, read [Tips on Using Suggestions](#tips-on-using-suggestions)
 
 ## Requesting Suggestions
 
@@ -26,10 +25,10 @@ When requesting general suggestions, Sidekick will determine what suggestions to
 
 | Category               | Description | Suggestion Types |
 | ---------------------- | ----------- | ---------------- |
-| Code Transformation    | Impacts IL generation | Recover Structures, Eliminate Dead Stores |
-| Contextual Identifiers | Adds context to the current function | Name Callee Functions, Simplify Symbols |
-| Structural Identifiers | Impacts structure names | Name Structures, Name Fields |
-| Local Identifiers      | Impacts names of elements local to the current function | Name Variables, Name Data Variables, Name Function |
+| Code Transformation    | Impacts IL generation | Recover and Define Structure Types |
+| Contextual Identifiers | Adds context to the current function | Rename Function Callees, Simplify Symbols |
+| Structural Identifiers | Impacts structure names | Rename Structure Types and Fields |
+| Local Identifiers      | Impacts names of elements local to the current function | Rename Variables, Rename Data Variables, Rename Function |
 | Metadata               | Adds information about the current function | Comment Function |
 
 As users iteratively request general suggestions, Sidekick will generate other suggestion types during its progression through each suggestion stage.
@@ -68,7 +67,7 @@ Suggestions returned by Sidekick in the suggestions tree can be applied in the f
 
 !!! note
 
-    Applying a suggestion submits feedback to up-vote the suggestion. See [Feedback for Suggestions](./suggestions.md#feedback-for-suggestions) for more information.
+    Applying a suggestion submits feedback to up-vote the suggestion. See [Feedback for Suggestions](#feedback-for-suggestions) for more information.
 
 ## Clearing Suggestions
 
@@ -88,7 +87,7 @@ Suggestions returned by Sidekick in the suggestions tree can be rejected as foll
 
 !!! note
 
-    Rejecting a suggestion submits feedback to down-vote the suggestion. See [Feedback for Suggestions](./suggestions.md#feedback-for-suggestions) for more information.
+    Rejecting a suggestion submits feedback to down-vote the suggestion. See [Feedback for Suggestions](#feedback-for-suggestions) for more information.
 
 ## Auto-Suggestions
 
@@ -100,7 +99,7 @@ The `sidekick.suggestions.auto_suggest_dwell_time` setting controls the dwell ti
 
 When saving a BNDB, all suggestions currently in the suggestions tree are stored in the BNDB.  When re-opening a saved BNDB, suggestions stored in the BNDB are reloaded in the suggetions tree.
 
-## Feedback from Suggestions
+## Feedback for Suggestions
 
 For the purpose of product improvement, Sidekick implements a simple up-/down-vote mechanism for collecting feedback on the quality of its suggestions. The following feedback is submitted for each suggestion action:
 

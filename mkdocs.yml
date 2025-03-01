@@ -1,5 +1,5 @@
 site_name: 'Binary Ninja Sidekick User Documentation'
-copyright: '© Copyright 2015-2024, Vector 35 Inc'
+copyright: '© Copyright 2015-2025, Vector 35 Inc'
 theme:
   name: material
   favicon: 'images/favicon.ico'
@@ -28,29 +28,27 @@ nav:
   - Home: 'index.md'
   - 'getting-started.md'
   - User's Guide:
-    - Introduction: guide/guide.md
-    - Indexes Sidebar:
-      - Sidekick Version 2.x: guide/indexes.v2.md
-      - Sidekick Version 1.x: guide/indexes.md
-    - Code Insight Map View: guide/code_insight_map.md
-    - "Suggestions Sidebar":
-      - guide/suggestions.md
-      - Structure Recovery: guide/structures.md
-      - guide/variables.md
-      - Structure and Field Naming: guide/fields.md
-      - Function Naming: guide/function_naming.md
-      - Function Descriptions: guide/briefs.md
-    - Assistant Sidebar: guide/assistant.md
-    - Analysis Workbench Sidebar: guide/analysis_workbench.md
-    - LLMOperator Model Catalog Sidebar: guide/llmoperator_model_catalog.md
-    - Investigations Sidebar: guide/investigations.md
-    - guide/components.md
-    - guide/documentation.md
-    - guide/code_comment.md
-    - Function Callee Naming: guide/function_callee_naming.md
+    - Introduction: guide/intro.md
+    - Deep Analysis:
+      - Analysis Console: guide/analysis/analysis_console.md
+      - Analysis Indexes: guide/analysis/analysis_indexes.md
+      - Code Insight Map: guide/analysis/code_insight_map.md
+    - Smart Automation:
+      - Automation Workbench: guide/automation/automation_workbench.md
+    - Improved Decompilation:
+      - Decompilation Suggestions: guide/decompilation/suggestions.md
+      - Structure Recovery: guide/decompilation/structures.md
+      - Naming: guide/decompilation/naming.md
+      - Comments: guide/decompilation/comments.md
+    - Artifacts:
+      - Documentation: guide/artifacts/documentation.md
+    - Management:
+      - Change Log: guide/management/change_log.md
   - "Known Issues":
     - SKI-1: issues/ski-1.md
     - SKI-2: issues/ski-2.md
+  - Reference:
+    - Binary Ninja Query Language: guide/analysis/bnql.md
   - About:
     - Sidekick: 'about/about.md'
     - Legal Terms and Conditions: 'about/legal-terms-and-conditions.md'
@@ -68,3 +66,9 @@ markdown_extensions:
       permalink: True
 extra_css:
   - docs.css
+
+extra:
+  version:
+    provider: mike
+    alias: true
+    default: latest

@@ -10,21 +10,31 @@ The following instructions use `conda`, but any virtual environment can be used.
 > NOTE: The easiest way to install `conda` on MacOS is to use `brew install miniforge`.
 
 ```sh
-conda create -n sidekick-beta python=3.9 packaging
+conda create -n sidekick-beta python=3.10 packaging
 ```
 
 ## Install the Required Packages
 
-The plugin requires Python 3.9 or later and the following packages:
+The plugin requires Python 3.10 or later and the following packages:
 
 ```txt
-requests>=2.28.2
-networkx>=3.0.0
-pygments>=2.14.0
-intervaltree>=3.0.2
-sentence-transformers>=2.2.2
-scikit-learn>=1.1.3
-pyjarowinkler>=1.8
+requests>=2.28.2,<3
+pygments>=2.14.0,<3
+networkx>=3.0.0,<4
+intervaltree>=3.0.2,<4
+numpy>=1.26,<2
+torch>=2.2.2,<2.3.0
+scikit-learn>=1.1.3,<2
+pyjarowinkler>=1.8,<2
+markdown
+watchdog
+pydantic>=2.7,<3
+arrow>=1.3,<2
+jsonschema>=4.22,<5
+accelerate>=0.33.0,<1
+transformers>=4.41.0,<5
+tiktoken>=0.7.0,<1
+markdown_it_py>=3.0.0,<4
 ```
 
 ## Configure BinaryNinja to Use the Environment
@@ -49,8 +59,8 @@ Use a separate `BN_USER_DIRECTORY` directory for the beta test.
 
     ```json
     {
-        "python.binaryOverride" : "/opt/homebrew/Caskroom/miniforge/base/envs/sidekick-beta/bin/python3.9",
-        "python.interpreter" : "/opt/homebrew/Caskroom/miniforge/base/envs/sidekick-beta/lib/libpython3.9.dylib",
-        "python.virtualenv" : "/opt/homebrew/Caskroom/miniforge/base/envs/sidekick-beta/lib/python3.9/site-packages"
+        "python.binaryOverride" : "/opt/homebrew/Caskroom/miniforge/base/envs/sidekick-beta/bin/python3.10",
+        "python.interpreter" : "/opt/homebrew/Caskroom/miniforge/base/envs/sidekick-beta/lib/libpython3.10.dylib",
+        "python.virtualenv" : "/opt/homebrew/Caskroom/miniforge/base/envs/sidekick-beta/lib/python3.10/site-packages"
     }
     ```
