@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "scripts": [
+    {
+      "metadata": {
+        "uuid": "c2212235-e7dd-42d6-b55d-fb64ab2a74f9",
+        "title": "System Calls",
+        "last_modified": "2025-07-08T12:35:19.866580",
+        "last_executed": "2025-07-08T12:35:23.293953"
+      },
+      "current": {
+        "code": "# NAME: System Calls\n# DESCRIPTION: Instructions that call functions that interact with the computer's operating system.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.SYSTEM_INTERACTIONS)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'System Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "28baa7c0-a7c7-4ead-b6ba-5459090e947d",
+        "title": "String Calls",
+        "last_modified": "2025-07-08T12:34:47.722243",
+        "last_executed": "2025-07-08T12:34:51.462773"
+      },
+      "current": {
+        "code": "# NAME: String Calls\n# DESCRIPTION: Instructions that call functions that handle string operations, including searching, modifying, formatting, or comparing strings.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.STRINGS)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'String Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "a36e1ec5-43cd-485d-a9e5-71cd8052482b",
+        "title": "Security Calls",
+        "last_modified": "2025-07-08T12:34:12.563454",
+        "last_executed": "2025-07-08T12:34:15.924325"
+      },
+      "current": {
+        "code": "# NAME: Security Calls\n# DESCRIPTION: Instructions that call functions that handle user authentication, access control, privileges, or secure communication.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.SECURITY)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\n\nwith open_index(bv, 'Security Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "e45ef42c-a588-495f-90ce-c238f0c9e1f1",
+        "title": "Random Number Calls",
+        "last_modified": "2025-07-08T12:33:36.038499",
+        "last_executed": "2025-07-08T12:33:39.664119"
+      },
+      "current": {
+        "code": "# NAME: Random Number Calls\n# DESCRIPTION: Instructions that call functions that generate random numbers, sample, or shuffle.\n# CREATION_DATE: 2023-08-01\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.RANDOM_NUMBERS)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Random Number Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "88df84d5-115b-4289-a678-e2a9c6312ca6",
+        "title": "Parsing Calls",
+        "last_modified": "2025-07-08T12:32:33.142348",
+        "last_executed": "2025-07-08T12:32:36.629455"
+      },
+      "current": {
+        "code": "# NAME: Data Parsing Calls\n# DESCRIPTION: Instructions that call functions that read, write, format, or convert data formats, protocols, or serialization formats.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.DATA_PARSING)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Parsing Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "f12b750f-f2f6-404f-a9db-2a96d63267fc",
+        "title": "Network IO Calls",
+        "last_modified": "2025-07-08T12:31:47.077086",
+        "last_executed": "2025-07-08T12:31:50.534659"
+      },
+      "current": {
+        "code": "# NAME: Network IO Calls\n# DESCRIPTION: Instructions that call functions that handle data from network communications,\n#              including sending, receiving, and processing network packets or data streams.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.NETWORK_IO)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Network IO Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "37715656-346a-47d3-bce6-3531fbca7d54",
+        "title": "Memory Management Calls",
+        "last_modified": "2025-07-08T12:31:09.940169",
+        "last_executed": "2025-07-08T12:31:13.541430"
+      },
+      "current": {
+        "code": "# NAME: Memory Management Calls\n# DESCRIPTION: Instructions that call functions that allocate or deallocate raw computer memory (heap or stack).\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.MEMORY_MANAGEMENT)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Memory Management Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "be4fed44-9eaf-4c4a-ae2c-07c37da33253",
+        "title": "Media Calls",
+        "last_modified": "2025-07-08T12:30:21.791896",
+        "last_executed": "2025-07-08T12:30:25.157214"
+      },
+      "current": {
+        "code": "# NAME: Media Calls\n# DESCRIPTION: Instructions that call functions handling audio, video, and graphics data (including encoding, decoding, and rendering).\n# CREATION_DATE: 2023-08-01\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.MEDIA)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\n\n\nwith open_index(bv, 'Media Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "232b5d45-a99a-4cde-ae86-9e9dddba5e76",
+        "title": "File IO Calls",
+        "last_modified": "2025-07-08T12:29:25.493588",
+        "last_executed": "2025-07-08T12:29:29.254133"
+      },
+      "current": {
+        "code": "# NAME: File IO Calls\n# DESCRIPTION: Instructions that call functions that handle files, including reading, writing,\n#              and manipulating file data or metadata. Also includes strings that look like file paths.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\nimport re\n\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.FILE_IO)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\n    for s in bv.strings:\n        if re.search(r\"^(\\/|\\w+:\\\\).*\", s.raw.decode('utf8')):\n            yield s\n\n\nwith open_index(bv, 'File IO Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "50525d74-ccaf-4148-bcd6-dd164f599960",
+        "title": "Error Handling Calls",
+        "last_modified": "2025-07-08T12:22:12.241085",
+        "last_executed": "2025-07-08T12:22:15.911022"
+      },
+      "current": {
+        "code": "# NAME: Error Handling Calls\n# DESCRIPTION: Instructions that call functions that respond to errors or log information.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.ERROR_HANDLING)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Error Handling Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "19b209ea-c5ff-4379-b407-d9771296f41a",
+        "title": "Data and Time Calls",
+        "last_modified": "2025-07-08T12:21:20.329023",
+        "last_executed": "2025-07-08T12:21:23.687735"
+      },
+      "current": {
+        "code": "# NAME: Date and Time Calls\n# DESCRIPTION: Instructions that call functions that handle dates, times, timezones, and calendars.\n# CREATION_DATE: 2023-08-01\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.DATE_AND_TIME)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Date and Time Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "43f569c8-c681-44ab-bc43-778e0869016f",
+        "title": "Data Structure Calls",
+        "last_modified": "2025-07-08T12:20:33.479489",
+        "last_executed": "2025-07-08T12:20:37.134623"
+      },
+      "current": {
+        "code": "# NAME: Data Structure Calls\n# DESCRIPTION: Instructions that call functions that manipulating data structures such as trees, lists, or arrays.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.DATA_STRUCTURES)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Data Structure Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "7e2d4fcb-9c54-4bc2-b962-b04972edb737",
+        "title": "Data Conversion Calls",
+        "last_modified": "2025-07-08T12:19:50.343022",
+        "last_executed": "2025-07-08T12:19:53.637485"
+      },
+      "current": {
+        "code": "# NAME: Data Conversion Calls\n# DESCRIPTION: Instructions that call functions that convert between data types.\n# CREATION_DATE: 2023-08-01\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.DATA_CONVERSIONS)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Data Conversion Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "56f3bbab-b778-4193-82fe-e6b95e662ace",
+        "title": "Cryptography Calls",
+        "last_modified": "2025-07-08T12:19:09.663888",
+        "last_executed": "2025-07-08T12:19:13.644204"
+      },
+      "current": {
+        "code": "# NAME: Cryptograph Calls\n# DESCRIPTION: Instructions that call functions that encrypt, decrypt, hash, or encode data, as well as handle keys and certificates.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.CRYPTOGRAPHY)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Cryptography Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "f72b1ef1-608c-4499-9ef2-3352f224a8fa",
+        "title": "Console IO Calls",
+        "last_modified": "2025-07-08T12:17:51.169591",
+        "last_executed": "2025-07-08T12:17:54.887683"
+      },
+      "current": {
+        "code": "# NAME: Console IO Calls\n# DESCRIPTION: Instructions that call functions that handle data from user interactions via console or terminal,\n#              including reading or writing data to standard input, output, or error streams\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.USER_IO)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Console IO Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "27e4cdb6-4e42-4385-93ed-58be767e6918",
+        "title": "Concurrency Calls",
+        "last_modified": "2025-07-08T12:13:43.428159",
+        "last_executed": "2025-07-08T12:14:09.562821"
+      },
+      "current": {
+        "code": "# NAME: Concurrency Calls\n# DESCRIPTION: Instructions that call functions that manage threads, processes, or synchronization primitives to enable concurrent or parallel execution.\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.PROCESSES)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Concurrency Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "f383385e-8a93-45b6-a1aa-99b2021d4b3a",
+        "title": "Algorithmic Calls",
+        "last_modified": "2025-07-08T12:13:55.463315",
+        "last_executed": "2025-07-08T12:13:59.421212"
+      },
+      "current": {
+        "code": "# This script iterates through each call instruction in the binary and classifies\n# NAME: Algorithmics Calls\n# DESCRIPTION: Instructions that call functions that implement mathematical, logical, or computational algorithms, including sorting, searching, or graph-based algorithms\n# CREATION_DATE: 2023-03-20\n# AUTHOR: info@vector35.com\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import filter_symbols, InspectionCategory\n\ndef indexer(bv: BinaryView):\n    io_symbols = filter_symbols(bv, InspectionCategory.ALGORITHMS)\n    addresses = set(symbol.address for symbol in io_symbols)\n\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in addresses:\n                    yield insn\n\nwith open_index(bv, 'Algorithmic Calls') as index:\n    for entry in indexer(bv):\n        index.add_entry(entry)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "40597b14-7049-4fee-b325-ab072b3a3dae",
+        "title": "Classify Calls",
+        "last_modified": "2024-08-09T08:15:20.901087",
+        "last_executed": null
+      },
+      "current": {
+        "code": "# This script iterates through each call instruction in the binary and classifies\n# the symbol name of the callee function\nfrom binaryninja import BinaryView, MediumLevelILOperation\nfrom Vector35_Sidekick.api.symbols import classify_symbols, InspectionCategory\n\nwith open_index(bv, 'Classify Calls') as index:\n    sym_cat_mapping = {sym.address: cat for sym, cat in classify_symbols(bv)}\n    addresses = set(sym_cat_mapping.keys())\n\n    call_insns = [insn for insn in bv.mlil_instructions if insn.operation == MediumLevelILOperation.MLIL_CALL and insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR]\n    for i, insn in enumerate(call_insns):\n        notify_progress(i, len(call_insns), \"Classifying calls...\")\n        if insn.dest.constant in addresses:\n            category = sym_cat_mapping[insn.dest.constant]\n            index.add_entry(insn, {\"Category\": category.name})\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "44e9a930-b8b9-453c-a4d1-1496678407d0",
+        "title": "Utility Functions",
+        "last_modified": "2024-08-09T08:14:51.391165",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView\nfrom scipy.optimize import curve_fit\nimport numpy as np\n\n\n# Define power-law function\ndef power_law(k, alpha, C):\n    return C * k ** (-alpha)\n\n\ndef indexer(bv: BinaryView):\n    bv.update_analysis_and_wait()\n\n    # Compute out-degrees for each function\n    functions = list(bv.functions)\n    in_degrees = [len(set(func.callers)) for func in functions]\n    unique_degrees, counts = np.unique(in_degrees, return_counts=True)\n\n    # Normalize the counts to get probabilities\n    probs_extended = counts / counts.sum()\n\n    # Remove data points with an out-degree of 0 (to avoid division by zero in the power-law function)\n    non_zero_degrees = unique_degrees[unique_degrees != 0]\n    non_zero_probs = probs_extended[unique_degrees != 0]\n\n    # Fit the power-law model\n    params, _ = curve_fit(power_law, non_zero_degrees, non_zero_probs)\n\n    # Find outliers based on P(k) and threshold\n    threshold = 0.001  # Threshold for filtering outliers\n    for func, in_degree in zip(functions, in_degrees):\n        if in_degree != 0 and power_law(in_degree, *params) < threshold:\n            yield func, {\"In-Degree\": in_degree}\n\n\nwith open_index(bv, 'Utility Functions') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Utility Functions...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "1655f176-309b-413d-a02f-881580c1165c",
+        "title": "Stack Buffers",
+        "last_modified": "2024-08-09T08:14:51.390207",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView, VariableSourceType\nfrom Vector35_Sidekick.indexing import IndexedValue\nfrom typing import Generator\n\n\ndef indexer(bv: BinaryView) -> Generator[IndexedValue, None, None]:\n    for hlil_func in bv.hlil_functions():\n        for var in hlil_func.aliased_vars:\n            if var.source_type == VariableSourceType.StackVariableSourceType:\n                yield (hlil_func.source_function.start, var)\n\n\nwith open_index(bv, 'Stack Buffers') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Stack Buffers...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "159fe3da-aaf7-418b-809b-5db7ee71abf0",
+        "title": "Resolved Indirect Calls",
+        "last_modified": "2024-08-09T08:14:51.389504",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import *\nfrom Vector35_Sidekick.indexing import IndexedValue\n\ndef indexer(bv: BinaryView) -> Generator[IndexedValue, None, None]:\n   for insn in bv.hlil_instructions:\n      if isinstance(insn, HighLevelILCall):\n         if isinstance(insn.dest, HighLevelILDeref) and isinstance(insn.dest.src, HighLevelILConstPtr):\n            if func_ptr := bv.read_pointer(insn.dest.src.constant):\n               if func := bv.get_function_at(func_ptr):\n                  yield insn, {'callees': [func.name], 'call-targets': [func.start]}\n\nwith open_index(bv, 'Resolved Indirect Calls') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Resolved Indirect Calls...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "2c2aa274-383e-4fa8-8fc0-74813979bd95",
+        "title": "Recursive Functions",
+        "last_modified": "2024-08-09T08:14:51.388655",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView\nimport networkx as nx\n\n\ndef indexer(bv: BinaryView):\n    # Build a call graph\n    call_graph = nx.DiGraph()\n    for func in bv.functions:\n        call_graph.add_node(func.start)\n        for callee_start in func.callee_addresses:\n            call_graph.add_edge(func.start, callee_start)\n\n    # Use Tarjan's algorithm to find strongly connected components\n    strongly_connected_components = list(nx.strongly_connected_components(call_graph))\n\n    for component in strongly_connected_components:\n        if len(component) > 1:\n            # Mutually recursive functions (cycle with multiple nodes)\n            for node in component:\n                yield bv.get_function_at(node)\n        elif len(component) == 1:\n            node = next(iter(component))\n            if call_graph.has_edge(node, node):\n                # Simple recursion (self-loop)\n                yield bv.get_function_at(node)\n\n\nwith open_index(bv, 'Recursive Functions') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Recursive Functions...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "334f1ddf-bc53-46d9-a77d-1a15bf48c8d0",
+        "title": "Indirect Calls",
+        "last_modified": "2024-08-09T08:14:51.387881",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView, MediumLevelILOperation, MediumLevelILCall, MediumLevelILJump\n\n\ndef indexer(bv: BinaryView):\n    for insn in bv.mlil_instructions:\n        if isinstance(insn, (MediumLevelILCall, MediumLevelILJump)):\n            if (\n                insn.dest.operation != MediumLevelILOperation.MLIL_CONST_PTR and\n                insn.dest.operation != MediumLevelILOperation.MLIL_IMPORT\n            ):\n                yield insn\n\n\nwith open_index(bv, 'Indirect Calls') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Indirect Calls...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "be08dc66-1a28-42c9-846a-d88557588ac5",
+        "title": "Indirect Call Targets",
+        "last_modified": "2024-08-09T08:14:51.386938",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView, TypeClass\nfrom Vector35_Sidekick.code_analysis.data_scanning import scan_data_for_function_pointers\n\n\ndef add_if_adddress_taken(container, role, operand, parent, addr):\n    if role == \"dest\" or parent is None:\n        return\n    if operand.value.value == addr:\n        container.add(addr)\n\n\ndef indexer(bv: BinaryView):\n    scan_data_for_function_pointers(bv)\n\n    starts = set()\n    for var in bv.data_vars.values():\n        if var.type.type_class == TypeClass.PointerTypeClass:\n            func = bv.get_function_at(var.value)\n            if func and func.start not in starts:\n                starts.add(func.start)\n                yield func\n    for func in bv.functions:\n        for ref in bv.get_code_refs(func.start):\n            if ref.mlil is None:\n                continue\n            starts_in_ref = set()\n            ref.mlil.visit(lambda r, v, __, p: add_if_adddress_taken(starts_in_ref, r, v, p, func.start))\n            if starts_in_ref and func.start not in starts:\n                starts.add(func.start)\n                yield func\n\n\nwith open_index(bv, 'Indirect Call Targets') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Indirect Call Targets...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "d3d7f262-898d-47af-be2a-3b67d5321276",
+        "title": "High-Level Functions",
+        "last_modified": "2024-08-09T08:14:51.385925",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView\nfrom scipy.optimize import curve_fit\nimport numpy as np\n\n\n# Define power-law function\ndef power_law(k, alpha, C):\n    return C * k ** (-alpha)\n\n\ndef indexer(bv: BinaryView):\n    bv.update_analysis_and_wait()\n    # Compute out-degrees for each function\n    functions = list(bv.functions)\n    out_degrees = [len(set(func.callee_addresses)) for func in functions]\n    unique_degrees, counts = np.unique(out_degrees, return_counts=True)\n\n    # Normalize the counts to get probabilities\n    probs_extended = counts / counts.sum()\n\n    # Remove data points with an out-degree of 0 (to avoid division by zero in the power-law function)\n    non_zero_degrees = unique_degrees[unique_degrees != 0]\n    non_zero_probs = probs_extended[unique_degrees != 0]\n\n    # Fit the power-law model\n    if len(non_zero_degrees) < 2:\n        return\n    params, _ = curve_fit(power_law, non_zero_degrees, non_zero_probs)\n\n    # Determine the threshold based on the fitted model\n    probs = [-power_law(k, *params) for k in non_zero_degrees]\n    threshold = -np.percentile(probs, 80)\n\n    # Find outliers based on P(k) and threshold\n    for func, out_degree in zip(functions, out_degrees):\n        if out_degree != 0 and power_law(out_degree, *params) < threshold:\n            yield func, {'Out-Degree': out_degree}\n\n\nwith open_index(bv, 'High-Level Functions') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running High-Level Functions...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "1567484a-e31c-4034-8615-b2ef5db90fa9",
+        "title": "Entry Points",
+        "last_modified": "2024-08-09T08:14:51.384758",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView, SymbolType\n\n\ndef indexer(bv: BinaryView):\n    def is_address_taken(addr: int):\n        try:\n            next(bv.get_code_refs(addr))\n            return True\n        except StopIteration:\n            pass\n        try:\n            next(bv.get_data_refs(addr))\n            return True\n        except StopIteration:\n            pass\n        return False\n\n    for func in bv.functions:\n        # Functions defined in this binary\n        if func.symbol.type == SymbolType.FunctionSymbol:\n            # Functions with zero in-degree\n            if len(func.callers) == 0:\n                # Functions whose address is not taken\n                if not is_address_taken(func.start):\n                    yield func\n\n\nwith open_index(bv, 'Entry Points') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Entry Points...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    },
+    {
+      "metadata": {
+        "uuid": "9dc4c755-5196-4cf5-8931-d4dea824ed4e",
+        "title": "Dynamic Allocations",
+        "last_modified": "2024-08-09T08:14:51.382996",
+        "last_executed": null
+      },
+      "current": {
+        "code": "\nfrom binaryninja import BinaryView, MediumLevelILOperation\n\n\ndef get_allocator_addresses(bv):\n    allocators = [\n        'operator new',\n        'operator new[]',\n        'malloc',\n        'calloc',\n        'realloc',\n        'alloca',\n        'alloca_with_align',\n        'valloc',\n        'pvalloc',\n        'memalign',\n        'posix_memalign',\n        'aligned_alloc',\n        'HeapAlloc',\n        'LocalAlloc',\n        'GlobalAlloc',\n        'VirtualAlloc',\n        'VirtualAllocEx',\n        'VirtualAllocExNuma',\n    ]\n    symbols = []\n    for name in allocators:\n        for sym in bv.get_symbols_by_name(name):\n            symbols.append(sym)\n    addrs = set([sym.address for sym in symbols])\n    print([hex(a) for a in addrs])\n    return addrs\n\n\ndef indexer(bv: BinaryView):\n    alloc_addrs = get_allocator_addresses(bv)\n    for insn in bv.mlil_instructions:\n        if insn.operation == MediumLevelILOperation.MLIL_CALL:\n            if insn.dest.operation == MediumLevelILOperation.MLIL_CONST_PTR:\n                if insn.dest.constant in alloc_addrs:\n                    # Check if at least one argument is not a constant\n                    if any([arg.operation != MediumLevelILOperation.MLIL_CONST for arg in insn.params]):\n                        yield insn\n\n\nwith open_index(bv, 'Dynamic Allocations') as index:\n    entries = list(indexer(bv))\n    for i, entry in enumerate(entries):\n        notify_progress(i, len(entries), 'Running Dynamic Allocations...')\n        metadata = None\n        if isinstance(entry, tuple):\n            entry, metadata = entry\n        index.add_entry(entry, metadata)\n",
+        "llm_op_specifications": []
+      }
+    }
+  ]
+}
